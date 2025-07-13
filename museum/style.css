@@ -6,3 +6,12 @@
   font-family: Forum;
   src: url("assets/fonts/Forum-Regular.ttf");
 }
+
+:root {
+  --bg-dark: #030303;
+  --dark-red: #710707;
+  --font-gold: #9d8665;
+  --font1: 80px;
+  --font2: 32px;
+}
+
