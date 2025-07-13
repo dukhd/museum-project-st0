@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Louvre</title>
+  <title>museum</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/favicon.ico">
 </head>
 <body>
   <header class="header-container">
@@ -12,7 +14,7 @@
       <a class="logo-text" href="#welcome">Louvre</a>
     </div>
     <nav class="navigation">
-        <ul class="navigation-list">
+        <ul class="navigation-list nav-header">
           <li class="nav-list-item"><a href="#visiting">Visiting</a></li>
           <li class="nav-list-item"><a href="#explore">Explore</a></li>
           <li class="nav-list-item"><a href="#video">Video</a></li>
@@ -24,9 +26,9 @@
   </header>
   <main class="main-container">
     <!-- welcome section start -->
-    <section class="welcome">
+    <section class="section dark-section welcome-section">
       <h1 class="title-hiden" id="welcome">Louvre</h1>
-      <h2 class="section-title white">Welcome to the Louvre</h2>
+      <h2 class="section-title white">Welcome<br> to the Louvre</h2>
       <p>From the castle to the museum</p>
       <a href="https://www.google.com/maps/@48.8618159,2.3366818,3a,75y,81.55h,73.4t/data=!3m7!1e1!3m5!1sAF1QipOVxZQuSy3Bx9T_HpH_7FtBHDTXvI6SF-A10ocT!2e10!3e12!7i5472!8i2736" 
         class="welcome-discover-button">
@@ -36,7 +38,7 @@
     <!-- welcome section end -->
 
     <!-- visiting section start -->
-    <section class="visiting" id="visiting">
+    <section class="section white-section visiting-section" id="visiting">
       <h2 class="section-title gold">Virtual tour</h2>
       <div class="visiting-cards">
         <!-- visiting-item 1 start -->
@@ -110,7 +112,7 @@
     <!-- visiting section end -->
 
     <!-- explore section start -->
-    <section class="explore" id="explore">
+    <section class="section dark-section explore-section" id="explore">
       <div class="explore-left">
         <h2 class="section-title white">Picture explore</h2>
         <p>Las Meninas is a 1656 painting by Diego Velázquez, the leading artist of the Spanish Golden Age.</p>
@@ -118,13 +120,17 @@
         <p>The cleaning provoked furious protests, not because the picture had been damaged in any way, but because it looked different.</p> 
       </div>
       <div class="explore-right">
-        <img src="" alt="">
+        <div class="explore-slider">
+          <img src="assets/img/explore-slider/before.jpg" alt="Explore before" class="before">
+          <img src="assets/img/explore-slider/after.jpg" alt="Explore after" class="after">
+          <div class="slider-handle"></div>
+        </div>
       </div>
     </section>
     <!-- explore section end -->
 
     <!-- video section start -->
-    <section class="video" id="video">
+    <section class="section white-section video-section" id="video">
       <div class="video-top">
         <h2 class="section-title gold">Video journey</h2>
         <p>Enter and visit one of the most famous museums in the world and enjoy masterpieces such as Mona Lisa or Hammurabi's Code</p>
@@ -156,7 +162,7 @@
     <!-- video section end -->
 
     <!-- gallery section start -->
-    <section class="gallery" id="gallery">
+    <section class="section dark-section gallery-section" id="gallery">
       <h2 class="section-title white">Art Gallery</h2>
       <img src="" alt="">
       <img src="" alt="">
@@ -174,7 +180,7 @@
     <!-- gallery section end -->
 
     <!-- tickets section start -->
-    <section class="tickets" id="tickets">
+    <section class="section white-section tickets-section" id="tickets">
       <h2 class="section-title gold">Buy Tickets</h2>
       <div class="tickets-left">
         <img src="assets/img/buy-tickets-img.jpg" alt="Buy tickets">
@@ -211,7 +217,7 @@
     <!-- tickets section end -->
 
     <!-- contacts section start -->
-    <section class="contacts" id="contacts">
+    <section class="section white-section contacts-section" id="contacts">
       <h2 class="section-title gold">Contacts</h2>
       <div class="contacts-body-left">
         <div class="contacts-body-top">
@@ -241,7 +247,7 @@
       </div>
 
       <nav class="navigation">
-        <ul class="navigation-list">
+        <ul class="navigation-list nav-footer">
           <li class="nav-list-item"><a href="#visiting">Visiting</a></li>
           <li class="nav-list-item"> <a href="#explore">Explore</a></li>
           <li class="nav-list-item"> <a href="#video">Video</a></li>
@@ -271,5 +277,6 @@
     </div>
     <!-- footer-bottom end -->
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>

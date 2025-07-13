@@ -1,17 +1,253 @@
 @font-face {
   font-family: Roboto;
   src: url("assets/fonts/Roboto-Regular.ttf");
+  font-weight: 300;
+}
+@font-face {
+  font-family: Roboto;
+  src: url("assets/fonts/Roboto-Thin.ttf");
+  font-weight: 100;
 }
 @font-face {
   font-family: Forum;
   src: url("assets/fonts/Forum-Regular.ttf");
+  font-weight: 400;
 }
-
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+}
 :root {
   --bg-dark: #030303;
   --dark-red: #710707;
   --font-gold: #9d8665;
+  --font-active: #7E6C51;
+  --font-white: #ffffff;
   --font1: 80px;
   --font2: 32px;
+}
+.white {
+  color: var(--font-white);
+}
+.gold {
+  color: var(--font-gold);
+}
+header, main, footer {
+  margin: 0 auto;
+  width: 1440px;
+
+}
+/* header styles start */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-dark);
+  height: 150px;
+}
+.logo {
+  display: flex;
+
+}
+.logo-svg {
+  background-image: url("assets/svg/logo.svg");
+}
+.logo-text {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: Forum;
+  font-weight: 400;
+  color: var(--font-white);
+  font-size: 28px;
+  letter-spacing: 5px;
+}
+.navigation-list {
+  font-family: Roboto;
+  font-size: 22px;
+  font-weight: 100;
+  letter-spacing: 2px;
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 55px;
+  max-width: 775px;
+  list-style: none;
+  padding: 0;
+}
+.nav-list-item a {
+  text-decoration: none;
+  color: var(--font-white);
+}
+/* header styles end */
+.dark-section {
+  background: #030303;
+}
+.title-hiden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+h2 {
+  text-transform: uppercase;
+  font-family: Forum;
+  font-weight: 400;
+  font-size: 80px;
+  letter-spacing: 5px;
+  margin: 0;
+}
+/* .section {
+  padding: 75px auto;
+} */
+
+.welcome-section h2 {
+  padding-top: 150px;
+  padding-bottom: 25px;
+}
+.section-title {
+  padding-top: 75px;
+}
+.welcome-section p {
+  color: var(--font-white);
+  font-family: Roboto;
+  font-size: 28px;
+  font-weight: 100;
+  letter-spacing: 2px;
+  margin: 0;
+  padding-bottom: 75px;
+}
+.welcome-section a {
+  font-family: Roboto;
+  font-size: 22px;
+  font-weight: 100;
+  letter-spacing: 2px;
+  color: var(--font-white);
+  text-decoration: none;
+  margin-bottom: 272px;
+}
+.welcome-discover-button {
+  display: inline-block;
+  padding: 26.5px 64px;
+  background-color: var(--dark-red);
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+.welcome-discover-button:hover {
+  background-color: var(--font-gold);
+}
+
+/* virtual tour section */
+
+
+.visiting-cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 75px auto;
+  row-gap: 75px;
+
+}
+h3 {
+  font-family: Forum;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 5px;
+  color: var(--bg-dark);
+  text-transform: uppercase;
+  margin: 0;
+  padding-top: 25px;
+}
+.visiting-item {
+  font-family: Roboto;
+  font-size: 22px;
+  font-weight: 100;
+  color: var(--bg-dark);
+}
+.visiting-item p {
+  margin: 0;
+  padding-bottom: 10px;
+}
+.visiting-item a {
+  text-decoration: none;
+  color: var(--bg-dark);
+}
+.visiting-item a:hover {
+  color: var(--font-gold);
+}
+.visiting-item a:active {
+  color: var(--font-active);
+}
+
+/* explore section */
+
+.explore-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  color: var(--font-white);
+  font-family: Roboto;
+  font-size: 22px;
+  font-weight: 100;
+}
+.explore-left {
+  width: 45%;
+}
+.explore-right {
+  padding: 90px 0 75px;
+}
+/* slider */
+.explore-right {
+    position: relative;
+    width: 720px;
+    height: 700px;
+
+    margin: auto;
+    overflow: hidden;
+}
+
+.explore-slider {
+    position: relative;
+}
+
+.explore-slider img {
+    display: block;
+}
+
+.before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    clip: rect(0, 720px, 700px, 280px);
+    z-index: 2;
+
+}
+
+.slider-handle {
+    position: absolute;
+    top: 0;
+    left: 440px; /* Starting position of the handle */
+    width: 2px;
+    height: 700px;
+    background-color: rgb(250, 250, 250);
+    cursor: ew-resize; /* Change cursor style when hovering over the handle */
+    z-index: 3;
 }
 
