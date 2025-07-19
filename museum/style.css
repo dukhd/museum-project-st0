@@ -524,6 +524,17 @@ h3 {
   top: 27px;
   left: 30px;
   cursor: pointer;
+  transition: 0.5s;
+  z-index: 2;
+}
+.play-button:hover {
+  position: absolute;
+  width: 23px;
+  height: 31px;
+  background-image: url(assets/svg/additional/play-hover.svg);
+  background-repeat: no-repeat;
+  top: 27px;
+  left: 30px;
   z-index: 2;
 }
 .play-button:active {
@@ -567,6 +578,18 @@ h3 {
   width: 38px;
   height: 31px;
   background-image: url(assets/svg/additional/volume.svg);
+  background-repeat: no-repeat;
+  top: 27px;
+  right: 320px;
+  cursor: pointer;
+  transition: 0.5s;
+  z-index: 2;
+}
+.audio-button:hover {
+  position: absolute;
+  width: 38px;
+  height: 31px;
+  background-image: url(assets/svg/additional/volume-hover.svg);
   background-repeat: no-repeat;
   top: 27px;
   right: 320px;
@@ -1026,9 +1049,11 @@ input[type="number"]::-webkit-inner-spin-button {
   display: flex;
   justify-content: center;
   align-items: center; 
-
+  transition: 0.9s;
 }
-
+.social-links-item:hover {
+  border: 1px solid var(--font-gold);
+}
 .youtube {
   display: flex;
   height: 24px;
@@ -1036,8 +1061,10 @@ input[type="number"]::-webkit-inner-spin-button {
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url(assets/svg/youtube.svg);
-
-
+  transition: 0.6s;
+}
+.youtube:hover {
+  background-image: url(assets/svg/youtube-hover.svg);
 }
 .instagram {
   display: flex;
@@ -1046,6 +1073,10 @@ input[type="number"]::-webkit-inner-spin-button {
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url(assets/svg/instagram.svg);
+  transition: 0.6s;
+}
+.instagram:hover {
+  background-image: url(assets/svg/instagram-hover.svg);
 }
 .facebook {
   display: flex;
@@ -1054,6 +1085,10 @@ input[type="number"]::-webkit-inner-spin-button {
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url(assets/svg/facebook.svg);
+  transition: 0.6s;
+}
+.facebook:hover {
+  background-image: url(assets/svg/facebook-hover.svg);
 }
 .twitter {
   display: flex;
@@ -1062,6 +1097,10 @@ input[type="number"]::-webkit-inner-spin-button {
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url(assets/svg/twitter.svg);
+  transition: 0.6s;
+}
+.twitter:hover {
+  background-image: url(assets/svg/twitter-hover.svg);
 }
 .pinterest {
   display: flex;
@@ -1070,6 +1109,10 @@ input[type="number"]::-webkit-inner-spin-button {
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url(assets/svg/pinterest.svg);
+  transition: 0.6s;
+}
+.pinterest:hover {
+  background-image: url(assets/svg/pinterest-hover.svg);
 }
 
 .footer-line {
