@@ -121,9 +121,7 @@ body {
   background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0.50) 16.19%, rgba(0, 0, 0, 0.00) 30.73%),
   url(assets/img/welcome-slider/1.jpg);
   background-repeat: no-repeat;
-  /* Set the size of the gradient */
   background-size: 1000px;
-  /* Position both the gradient and the image to the right */
   background-position: right, right top;
   z-index: 1;
 
@@ -184,9 +182,6 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding: 0 64px; */
-  /* width: 360px;
-  height: 75px; */
   background-color: var(--dark-red);
   text-decoration: none;
   border-radius: 10px;
@@ -211,7 +206,7 @@ h2 {
   display: flex;
   column-gap: 10px;
   align-items: center;
-  padding-right: 55px;
+  padding-right: 46px;
   padding-left: 74px;
 }
 .pagination-text p {
@@ -255,9 +250,9 @@ h2 {
 
 .pagination-arrow-left,
 .pagination-arrow-right {
-  background: none; /* Удаляем фоновый цвет */
-  border: none; /* Удаляем границы */
-  padding: 0; /* Удаляем внутренние отступы */
+  background: none;
+  border: none;
+  padding: 0; 
   cursor: pointer;
   outline: none;
   width: 30px;
@@ -293,8 +288,8 @@ h2 {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-bottom: 75px;
-  row-gap: 75px;
+  margin-bottom: 73px;
+  row-gap: 73px;
 
 }
 h3 {
@@ -366,9 +361,10 @@ h3 {
   color: var(--font-white);
   font-family: Roboto;
   font-size: 22px;
-  font-weight: 300;
+  font-weight: 200;
   line-height: 38.5px;
   margin: 0;
+  letter-spacing: 0.2px;
 }
 .gold-text {
   color: var(--font-gold);
@@ -425,7 +421,7 @@ h3 {
   z-index: 3;
 }
 .slider-handle > * + * {
-  margin-top: -1px; /* или любое отрицательное значение */
+  margin-top: -1px;
 }
 .slider-line-top {
   width: 5px;
@@ -448,17 +444,6 @@ h3 {
   background: #ffffff;
 }
 
-/* .slider-handle {
-    position: absolute;
-    top: 0;
-    left: 440px; - Starting position of the handle 
-    width: 2px;
-    height: 700px;
-    background-color: rgb(250, 250, 250);
-    cursor: ew-resize; - Change cursor style when hovering over the handle
-    z-index: 3;
-} */
-
 
 /* video section */
 .video-section {
@@ -475,13 +460,20 @@ h3 {
 }
 
 .video-top p {
+  display: flex;
+  width: 720px;
+  height: 90px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
   overflow-wrap: break-word;
   margin: 0;
   color: var(--bg-dark);
   font-family: Roboto;
   font-size: 22px;
-  font-weight: 300;
+  font-weight: 200;
   line-height: 38.5px;
+  letter-spacing: 0.15px;
   vertical-align: middle;
   width: 720px;
   margin: 0;
@@ -556,7 +548,7 @@ h3 {
   z-index: 2;
 }
 .play-line-red {
-  width: 497px;
+  width: 491px;
   height: 8px;
   background: #710707;
 }
@@ -568,7 +560,7 @@ h3 {
   cursor: pointer;
 }
 .play-line-white {
-  width: 432px;
+  width: 423px;
   height: 8px;
   background: #C4C4C4;
 }
@@ -615,7 +607,7 @@ h3 {
   z-index: 2;
 }
 .audio-line-red {
-  width: 67px;
+  width: 60px;
   height: 8px;
   background: #710707;
 }
@@ -627,18 +619,18 @@ h3 {
   cursor: pointer;
 }
 .audio-line-white {
-  width: 88px;
+  width: 80px;
   height: 8px;
   background: #C4C4C4;
 }
 .fullscreen-button {
   position: absolute;
-  width: 36px;
+  width: 35px;
   height: 35px;
   background-image: url(assets/svg/additional/fullscreen.svg);
   background-repeat: no-repeat;
   top: 25px;
-  right: 25px;
+  right: 30px;
   z-index: 2;
   cursor: pointer;
   transition: 0.5s;
@@ -668,7 +660,7 @@ h3 {
   padding-top: 40px;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 40px;
+  padding-bottom: 36px;
 }
 /* video mini bars */
 
@@ -775,7 +767,7 @@ h3 {
   position: relative;
   margin: 0 auto;
   width: 1440px;
-  margin-bottom: -322px; 
+  margin-bottom: -328px; 
   z-index: 1;
   overflow: hidden;
 }
@@ -823,6 +815,11 @@ h3 {
 .tickets-container {
   display: flex;
   gap: 60px;
+
+}
+.tickets-left img {
+  width: 100%;
+  height: 100%;
 }
 .tickets-right {
   display: flex;
@@ -846,12 +843,12 @@ label {
   line-height: normal;
 }
 .price {
-  padding-top: 40px;
-  padding-bottom: 52px;
+  padding-top: 36px;
+  padding-bottom: 60px;
   letter-spacing: 1.65px;
 }
 .tickets-center-title {
-  padding-bottom: 50px;
+  padding-bottom: 49px;
 }
 .tickets-right-title {
   padding-bottom: 25px;
@@ -864,8 +861,17 @@ label {
   flex-direction: column;
   gap: 25px;
 }
+.radio-list li {
+  display: flex;
+  align-items: center;
+  column-gap: 23px;
+}
 input[type="radio"] {
-  accent-color: var(--bg-dark); /* любой цвет */
+  accent-color: var(--bg-dark);
+  margin: 0;
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
 }
 .tickets-right-r {
   display: flex;
@@ -933,7 +939,7 @@ input[type="number"]::-webkit-inner-spin-button {
   cursor: pointer;
   font-family: Roboto;
   font-size: 22px;
-  font-weight: 300;
+  font-weight: 200;
   line-height: normal;
   text-align: center;
   letter-spacing: 2px;
@@ -945,19 +951,18 @@ input[type="number"]::-webkit-inner-spin-button {
   background-color: var(--font-gold);
   color: var(--bg-dark);
 }
-/* parallax 1 */
+/* parallax */
 
 .parallax-container {
-  margin: 0 auto;
-  width: 1920px;
-  padding-top: 75px;
+  padding-top: 71px;
 }
 .parallax {
   width: 100%;
   height: 400px;
-  background-image: url(assets/img/parallax-1.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
+  background-image: url(assets/img/parallax.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+
 }
 /* contacts section */
 .contacts-section {
@@ -968,7 +973,7 @@ input[type="number"]::-webkit-inner-spin-button {
 .contacts-body-container {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 74px;
+  padding-bottom: 70px;
 
 }
 .contacts-body-top {
@@ -976,7 +981,7 @@ input[type="number"]::-webkit-inner-spin-button {
   font-size: 28px;
   font-weight: 500;
   line-height: normal;
-  margin-bottom: 50px;
+  margin-bottom: 49px;
 }
 .bold-text {
   margin: 0;
@@ -987,6 +992,7 @@ input[type="number"]::-webkit-inner-spin-button {
   font-size: 22px;
   font-weight: 300;
   text-decoration: none;
+  letter-spacing: -0.19px;
   color: var(--bg-dark);
   margin: 0;
   transition: 0.6s;
@@ -999,7 +1005,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .contacts-body-bottom p:not(:last-of-type) {
-  margin-bottom: 25px;
+  margin-bottom: 23px;
 }
 
 
@@ -1016,14 +1022,16 @@ input[type="number"]::-webkit-inner-spin-button {
   justify-content: space-between;
   align-items: flex-end;
   padding-bottom: 50px;
-  padding-top: 84px;
+  padding-top: 85px;
 }
-.footer-top .logo {
-  padding-bottom: 97px;
+.footer-top-right {
+  display: flex;
+  column-gap: 139px;
 }
+
 .navigation-list.nav-footer {
   columns: 2;  
-  column-gap: 150px;
+  column-gap: 155px;
   list-style: none;
   padding-left: 0;
 }
@@ -1035,11 +1043,15 @@ input[type="number"]::-webkit-inner-spin-button {
 .navigation-list.nav-footer li:nth-child(6) {
   padding-bottom: 0;
 }
+
 .social-links-list {
   list-style: none;
   display: flex;
-  column-gap: 25px;
-  /* padding-top: 162px; */
+  column-gap: 23px;
+  padding-inline-start: 0;
+  margin-block-start: 0;
+  margin-block-end: 5px;
+
 }
 .social-links-item {
   width: 48px;
@@ -1139,8 +1151,13 @@ input[type="number"]::-webkit-inner-spin-button {
   text-decoration: none;
   transition: 0.6s;
 }
+.footer-link-rss {
+  margin-left: 24px;
+}
 .footer-link-github {
   font-weight: 200;
+  width: 113px;
+  text-align: right;
 }
 .footer-link-rss:hover,
 .footer-link-github:hover {
