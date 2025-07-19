@@ -130,7 +130,11 @@
           <div class="explore-slider">
             <img src="assets/img/explore-slider/before.jpg" alt="Explore before" class="before">
             <img src="assets/img/explore-slider/after.jpg" alt="Explore after" class="after">
-            <div class="slider-handle"></div>
+            <div class="slider-handle">
+              <div class="slider-line-top"></div>
+              <div class="slider-circle"></div>
+              <div class="slider-line-bottom"></div>
+            </div>
           </div>
         </div>
       </section>
@@ -146,12 +150,69 @@
         </div>
         <div class="video-center">
           <img src="assets/video/poster0-0.jpg" alt="Video main">
-          <div class="video-bar"></div>
+          <div class="play-big-button"></div>
+          <div class="video-bar">
+            <div class="play-button"></div>
+            <div class="play-line">
+              <div class="play-line-red"></div>
+              <div class="play-line-dot"></div>
+              <div class="play-line-white"></div>
+            </div>
+            <div class="audio-button"></div>
+            <div class="audio-line">
+              <div class="audio-line-red"></div>
+              <div class="audio-line-dot"></div>
+              <div class="audio-line-white"></div>
+            </div>
+            <div class="fullscreen-button"></div>
+          </div>
         </div>
         <div class="video-bottom">
-         <img src="assets/video/poster1-1.jpg" alt="Video small one">
-         <img src="assets/video/poster2-2.jpg" alt="Video small two">
-         <img src="assets/video/poster3-3.jpg" alt="Video small three">
+          <div class="video-bottom-item">
+            <img src="assets/video/poster1-1.jpg" alt="Video small one">
+            <div class="youtube-play-button"></div>
+            <div class="video-text-container">
+              <div class="video-text-left">
+                <div class="video-logo"></div>
+                <div class="video-text"><p>Exposition - Le Corps et l’Ame. De Dona...</p></div>
+              </div>
+              <div class="video-bar-dots">
+                <div class="video-dots-item"></div>
+                <div class="video-dots-item"></div>
+                <div class="video-dots-item"></div>
+              </div>
+            </div>
+          </div>
+          <div class="video-bottom-item">
+            <img src="assets/video/poster2-2.jpg" alt="Video small two">
+            <div class="youtube-play-button"></div>
+            <div class="video-text-container">
+              <div class="video-text-left">
+                <div class="video-logo"></div>
+                <div class="video-text"><p>Au Louvre ! La Venus de Milo</p></div>
+              </div>
+              <div class="video-bar-dots">
+                <div class="video-dots-item"></div>
+                <div class="video-dots-item"></div>
+                <div class="video-dots-item"></div>
+              </div>
+            </div>
+          </div>
+          <div class="video-bottom-item">
+            <img src="assets/video/poster3-3.jpg" alt="Video small three">
+            <div class="youtube-play-button"></div>
+            <div class="video-text-container">
+              <div class="video-text-left">
+                <div class="video-logo"></div>
+                <div class="video-text"><p>Promenade dans les collections mesop...</p></div>
+              </div>
+              <div class="video-bar-dots">
+                <div class="video-dots-item"></div>
+                <div class="video-dots-item"></div>
+                <div class="video-dots-item"></div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="video-dots">
           <div class="double-arrow rotate"></div>
@@ -201,41 +262,65 @@
     <div class="white-bgr">
       <section class="section white-section tickets-section" id="tickets">
         <h2 class="section-title gold">Buy Tickets</h2>
-        <div class="tickets-left">
-          <img src="assets/img/buy-tickets-img.jpg" alt="Buy tickets">
-        </div>
-        <div class="tickets-center">
-          <form class="tickets-center-types">
-            <p>Ticket Type</p>
-            <input type="radio" checked="checked" name="radio" id="permanent">
-            <label for="permanent">Permanent exhibition</label>
-            <br>
-            <input type="radio" checked="checked" name="radio" id="temporary">
-            <label for="temporary">Temporary exhibition</label>
-            <br>
-            <input type="radio" checked="checked" name="radio" id="combined">
-            <label for="combined">Combined Admission</label>
-          </form>
-        </div>
-        <div class="tickets-right">
-          <p>Amount</p>
-          <form class="tickets-right-basic">
-            <label for="quantity">Basic 18+</label>
-            <input type="number" id="quantity" name="quantity" min="0" max="10" step="1" value="1" required>
-          </form>
-          <form class="tickets-right-senior">
-            <label for="quantity">Senior 65+</label>
-            <input type="number" id="quantity" name="quantity" min="0" max="10" step="1" value="1" required>
-          </form>
-          <p>Total €220</p>
-          <div class="button-buy-now">
-            <p>Buy Now</p>
+        <div class="tickets-container">
+          <div class="tickets-left">
+            <img src="assets/img/buy-tickets-img.jpg" alt="Buy tickets">
+          </div>
+          <div class="tickets-right">
+            <div class="tickets-right-l">
+              <form class="tickets-center-types">
+                <p class="tickets-center-title">Ticket Type</p>
+                <div class="radio-list">
+                  <ul>
+                    <li>
+                      <input type="radio" checked="checked" name="radio" id="permanent">
+                      <label for="permanent">Permanent exhibition</label>
+                    </li>
+                    <li>
+                      <input type="radio" checked="checked" name="radio" id="temporary">
+                      <label for="temporary">Temporary exhibition</label>
+                    </li>
+                    <li>
+                      <input type="radio" checked="checked" name="radio" id="combined">
+                      <label for="combined">Combined Admission</label>
+                    </li>
+                  </ul>
+                </div>
+              </form>
+            </div>
+            <div class="tickets-right-r">
+              <p class="tickets-right-title">Amount</p>
+              <div class="amount-form-container">
+                <form class="tickets-right-basic">
+                  <label for="quantity">Basic 18+</label>
+                  <div class="input-wrapper">
+                    <button class="decrease">−</button>
+                    <input type="number" id="quantity" name="quantity" min="0" max="10" step="1" value="1" required>
+                    <button class="increase">+</button>
+                  </div>
+                </form>
+                <form class="tickets-right-senior">
+                  <label for="quantity">Senior 65+</label>
+                  <div class="input-wrapper">
+                    <button class="decrease">−</button>
+                    <input type="number" id="quantity" name="quantity" min="0" max="10" step="1" value="1" required>
+                    <button class="increase">+</button>
+                  </div>
+                </form>
+                <p class="price">Total €220</p>
+              </div>
+              <div class="button-buy-now">
+                <button>Buy Now</button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
     </div>
     <!-- tickets section end -->
-
+    <div class="parallax-container">
+      <div class="parallax"></div>
+    </div>
     <!-- contacts section start -->
     <div class="white-bgr">
       <section class="section white-section contacts-section" id="contacts">
@@ -298,8 +383,8 @@
       <!-- footer-bottom start -->
       <div class="footer-bottom">
           <p>&copy; 2021</p>
-          <p>The Rolling Scopes School</p>
-          <p>dukhd</p>
+          <a href="https://rs.school" class="footer-link" title="RS School">The Rolling Scopes School</a>
+          <a href="https://github.com/dukhd" class="footer-link" title="GitHub">dukhd</a>
       </div>
       <!-- footer-bottom end -->
     </div>
