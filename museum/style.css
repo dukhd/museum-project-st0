@@ -121,9 +121,7 @@ body {
   background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0.50) 16.19%, rgba(0, 0, 0, 0.00) 30.73%),
   url(assets/img/welcome-slider/1.jpg);
   background-repeat: no-repeat;
-  /* Set the size of the gradient */
   background-size: 1000px;
-  /* Position both the gradient and the image to the right */
   background-position: right, right top;
   z-index: 1;
 
@@ -184,9 +182,6 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding: 0 64px; */
-  /* width: 360px;
-  height: 75px; */
   background-color: var(--dark-red);
   text-decoration: none;
   border-radius: 10px;
@@ -255,9 +250,9 @@ h2 {
 
 .pagination-arrow-left,
 .pagination-arrow-right {
-  background: none; /* Удаляем фоновый цвет */
-  border: none; /* Удаляем границы */
-  padding: 0; /* Удаляем внутренние отступы */
+  background: none;
+  border: none;
+  padding: 0; 
   cursor: pointer;
   outline: none;
   width: 30px;
@@ -426,7 +421,7 @@ h3 {
   z-index: 3;
 }
 .slider-handle > * + * {
-  margin-top: -1px; /* или любое отрицательное значение */
+  margin-top: -1px;
 }
 .slider-line-top {
   width: 5px;
@@ -448,17 +443,6 @@ h3 {
   height: 331px;
   background: #ffffff;
 }
-
-/* .slider-handle {
-    position: absolute;
-    top: 0;
-    left: 440px; - Starting position of the handle 
-    width: 2px;
-    height: 700px;
-    background-color: rgb(250, 250, 250);
-    cursor: ew-resize; - Change cursor style when hovering over the handle
-    z-index: 3;
-} */
 
 
 /* video section */
@@ -833,6 +817,10 @@ h3 {
   gap: 60px;
 
 }
+.tickets-left img {
+  width: 100%;
+  height: 100%;
+}
 .tickets-right {
   display: flex;
   justify-content: space-between;
@@ -883,6 +871,7 @@ input[type="radio"] {
   margin: 0;
   width: 17px;
   height: 17px;
+  cursor: pointer;
 }
 .tickets-right-r {
   display: flex;
@@ -962,19 +951,18 @@ input[type="number"]::-webkit-inner-spin-button {
   background-color: var(--font-gold);
   color: var(--bg-dark);
 }
-/* parallax 1 */
+/* parallax */
 
 .parallax-container {
-  margin: 0 auto;
-  width: 1920px;
   padding-top: 71px;
 }
 .parallax {
   width: 100%;
   height: 400px;
-  background-image: url(assets/img/parallax-1.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
+  background-image: url(assets/img/parallax.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+
 }
 /* contacts section */
 .contacts-section {
