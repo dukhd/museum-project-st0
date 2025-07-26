@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>museum</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="media.css">
   <link rel="icon" href="assets/favicon.ico">
 </head>
 <body>
   <header class="dark-bgr">
-    <div class="header-container">
+    <div class="header-container container">
       <div class=logo>
         <div class="logo-svg"></div>
         <p class="logo-text">Louvre</p>
@@ -23,20 +24,26 @@
             <li class="nav-list-item"><a href="#tickets">Tickets</a></li>
             <li class="nav-list-item"><a href="#contacts">Contacts</a></li>
           </ul>
+          <div class="nav-burger-menu"></div>
       </nav>
     </div>
   </header>
   <main class="main-container">
     <!-- welcome section start -->
      <div class="dark-bgr">
-      <section class="section dark-section welcome-section">
-        <h1 class="title-hiden" id="welcome">Louvre</h1>
-        <h2 class="section-title white">Welcome<br> to the Louvre</h2>
-        <p>From the castle to the museum</p>
-        <a href="https://www.google.com/maps/@48.8618159,2.3366818,3a,75y,81.55h,73.4t/data=!3m7!1e1!3m5!1sAF1QipOVxZQuSy3Bx9T_HpH_7FtBHDTXvI6SF-A10ocT!2e10!3e12!7i5472!8i2736" 
-          class="welcome-discover-button">
-          Discover the Louvre
-        </a>
+      <section class="section container welcome-section">
+        <div class="welcome-content">
+          <h1 class="title-hiden" id="welcome">Louvre</h1>
+          <h2 class="section-title white">Welcome<br> to the Louvre</h2>
+          <p>From the castle to the museum</p>
+          <a href="https://www.google.com/maps/@48.8618159,2.3366818,3a,75y,81.55h,73.4t/data=!3m7!1e1!3m5!1sAF1QipOVxZQuSy3Bx9T_HpH_7FtBHDTXvI6SF-A10ocT!2e10!3e12!7i5472!8i2736" 
+            class="welcome-discover-button">
+            Discover the Louvre
+          </a>
+        </div>
+        <div class="welcome-image-mobile">
+          <img src="assets/img/welcome-slider/1.jpg" alt="Mona Lisa">
+        </div>
         <div class="welcome-pagination-container">
           <div class="pagination-text">
             <p>01</p>
@@ -60,7 +67,7 @@
     <!-- welcome section end -->
     <!-- visiting section start -->
      <div class="white-bgr">
-      <section class="section white-section visiting-section" id="visiting">
+      <section class="section container visiting-section" id="visiting">
         <h2 class="section-title gold">Virtual tour</h2>
         <div class="big-red-line"></div>
         <div class="visiting-cards">
@@ -136,7 +143,7 @@
     <!-- visiting section end -->
     <!-- explore section start -->
     <div class="dark-bgr">
-      <section class="section dark-section explore-section" id="explore">
+      <section class="section container explore-section" id="explore">
         <div class="explore-left">
           <h2 class="section-title white">Picture explore</h2>
           <div class="red-line-explore"></div>
@@ -145,22 +152,16 @@
           <p>The cleaning provoked furious protests, not because the picture had been damaged in any way, but because it looked different.</p> 
         </div>
         <div class="explore-right">
-          <div class="explore-slider">
-            <img src="assets/img/explore-slider/before.jpg" alt="Explore before" class="before">
-            <img src="assets/img/explore-slider/after.jpg" alt="Explore after" class="after">
-            <div class="slider-handle">
-              <div class="slider-line-top"></div>
-              <div class="slider-circle"></div>
-              <div class="slider-line-bottom"></div>
-            </div>
-          </div>
+          <img src="assets/img/explore-slider/before.jpg" alt="Explore before" class="before">
+          <img src="assets/img/explore-slider/after.jpg" alt="Explore after" class="after">
+          <div class="slider-handle"></div>
         </div>
       </section>
     </div>
     <!-- explore section end -->
     <!-- video section start -->
     <div class="white-bgr">
-      <section class="section white-section video-section" id="video">
+      <section class="section container video-section" id="video">
         <div class="video-top">
           <h2 class="section-title gold">Video journey</h2>
           <p>Enter and visit one of the most famous museums in the world and enjoy masterpieces such as Mona Lisa or Hammurabi's Code</p>
@@ -246,7 +247,7 @@
     <!-- video section end -->
     <!-- gallery section start -->
     <div class="dark-bgr">
-      <section class="section dark-section gallery-section" id="gallery">
+      <section class="section container gallery-section" id="gallery">
         <h2 class="section-title white">Art Gallery</h2>
         <div class="gallery-grid">
           <div class="gallery-column first-column">
@@ -275,7 +276,7 @@
     <!-- gallery section end -->
     <!-- tickets section start -->
     <div class="white-bgr">
-      <section class="section white-section tickets-section" id="tickets">
+      <section class="section container tickets-section" id="tickets">
         <h2 class="section-title gold">Buy Tickets</h2>
         <div class="big-red-line"></div>
         <div class="tickets-container">
@@ -323,7 +324,7 @@
                     <button class="increase">+</button>
                   </div>
                 </form>
-                <p class="price">Total €220</p>
+                <p class="price">Total €<span class="span-price">220</span></p>
               </div>
               <div class="button-buy-now">
                 <button>Buy Now</button>
@@ -339,7 +340,7 @@
     </div>
     <!-- contacts section start -->
     <div class="white-bgr">
-      <section class="section white-section contacts-section" id="contacts">
+      <section class="section container contacts-section" id="contacts">
         <h2 class="section-title gold">Contacts</h2>
         <div class="big-red-line"></div>
         <div class="contacts-body-container">
@@ -363,7 +364,7 @@
     <!-- contacts section end -->
   </main>
   <footer class="dark-bgr">
-    <div class="footer-container">
+    <div class="footer-container container">
       <!-- footer-top start -->
       <div class="footer-top">
         <div class="footer-top-right">
