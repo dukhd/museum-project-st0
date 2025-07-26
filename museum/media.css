@@ -415,20 +415,18 @@
 
   /* welcome section */
   .welcome-section {
-    /* position: initial; */
-    /* width: 984px;
-    height: 585px; */
-    /* background-size: 700px; */
-    background: url(assets/img/welcome-slider/1.jpg);
-    /* width: 728px;
-    height: 546px; */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    height: auto;
+    padding-top: 0;
+    padding-bottom: 30px;
   }
   .welcome-section h2 {
     padding-top: 0;
+    padding-bottom: 25px;
     text-align: center;
   }
   .welcome-section p {
@@ -440,6 +438,40 @@
   }
   .welcome-section a {
     display: none;
+  }
+
+  .welcome-image-mobile img {
+    width: 100%;
+    max-width: 728px;
+    height: auto;
+    max-height: 546px;
+    display: block;
+    margin-bottom: 30px;
+  }
+  .welcome-pagination-container {
+    position: static;
+    background: none;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    column-gap: 45px;
+    height: auto;
+    /* max-width: 700px;
+    width: 100%; */
+
+  }
+  .pagination-text {
+    /* column-gap: 10px; */
+    padding: 0;
+    /* padding-right: 45px;
+    padding-left: 224px; */
+  }
+  .pagination-text p {
+    margin: 0;
+    padding: 0;
+  }
+  .pagination-arrows {
+    padding: 0;
   }
 
 
@@ -470,4 +502,24 @@
     font-size: 18px;
     line-height: 21px;
   }
+
+/* explore section */
+  .explore-section {
+    gap: 0;
+  }
+  .red-line-explore {
+    max-width: 728px;
+    margin-bottom: 40px;
+  }
+  .explore-section p {
+    display: none;
+  }
+  .explore-right {
+    position: relative;
+    width: 100%;
+    max-width: 728px;
+    min-height: 705px;
+    margin-top: 0;
+  }
+  
 }

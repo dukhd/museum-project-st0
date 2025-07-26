@@ -161,6 +161,9 @@ body {
   background-position: right, right top;
   z-index: 1;
 }
+.welcome-image-mobile img {
+  display: none;
+}
 .title-hiden {
   position: absolute;
   width: 1px;
@@ -324,9 +327,9 @@ h2 {
   display: flex;
   /* justify-content: space-between; */
   flex-wrap: wrap;
-  margin-bottom: 73px;
+  /* margin-bottom: 73px; */
   justify-content: center;
-  row-gap: 72px;
+  row-gap: 74px;
   column-gap: 60px;
 }
 
@@ -461,7 +464,7 @@ h3 {
   position: absolute;
   top: 0;
   left: 58.5%;
-  transform: translateX(-50%);
+  /* transform: translateX(-50%); */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -478,8 +481,8 @@ h3 {
 }
 
 .slider-circle {
-  width: 29px;
-  height: 29px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: 5px solid #ffffff;
   cursor: col-resize;
@@ -488,7 +491,7 @@ h3 {
 
 .slider-line-bottom {
   width: 5px;
-  height: 339px;
+  height: 332px;
   background: #ffffff;
 }
 
@@ -698,7 +701,7 @@ h3 {
   padding-top: 40px;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 36px;
+  padding-bottom: 40px;
   gap: 42px;
 }
 /* video mini bars */
@@ -789,7 +792,7 @@ h3 {
   display: flex;
   justify-content: center;
   gap: 20px;
-  padding-bottom: 75px;
+  /* padding-bottom: 75px; */
 }
 
 .double-arrow {
@@ -841,6 +844,7 @@ h3 {
   position: relative;
   z-index: 0;
   max-height: 1960px;
+
 }
 .gallery-column {
   display: flex;
@@ -966,8 +970,8 @@ input[type="number"]::-webkit-inner-spin-button {
 .input-wrapper {
   display: flex;
   align-items: center;
-  width: 144px;
-  height: 44px;
+  width: 150px;
+  height: 50px;
   border: 3px solid black;
   overflow: hidden; 
 
@@ -1049,7 +1053,7 @@ input[type="number"]::-webkit-inner-spin-button {
 .contacts-body-container {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 70px;
+  /* padding-bottom: 70px; */
 
 }
 .contacts-body-top {
@@ -1096,6 +1100,8 @@ input[type="number"]::-webkit-inner-spin-button {
   width: 1440px; */
   display: flex;
   flex-direction: column;
+  padding-top: 85px;
+  padding-bottom: 50px;
 }
 
 .footer-top {
@@ -1103,7 +1109,6 @@ input[type="number"]::-webkit-inner-spin-button {
   justify-content: space-between;
   align-items: flex-end;
   padding-bottom: 50px;
-  padding-top: 85px;
 }
 .footer-top-right {
   display: flex;
@@ -1220,7 +1225,7 @@ input[type="number"]::-webkit-inner-spin-button {
 .footer-bottom {
   display: flex;
   justify-content: space-between;
-  padding: 50px 0;
+  padding: 50px 0 0 0;
 }
 
 .footer-link-rss,
