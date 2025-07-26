@@ -875,7 +875,7 @@ label {
   font-family: Roboto;
   font-size: 22px;
   font-weight: 300;
-  line-height: normal;
+  line-height: 26px;
 }
 .tickets-right p {
   color: var(--bg-dark);
@@ -889,6 +889,7 @@ label {
   padding-top: 40px;
   padding-bottom: 60px;
   letter-spacing: 1.65px;
+  line-height: 33px;
 }
 .tickets-center-title {
   padding-bottom: 50px;
@@ -948,8 +949,8 @@ input[type="number"]::-webkit-inner-spin-button {
   height: 50px;
   border: 3px solid black;
   overflow: hidden; 
-
 }
+
 .tickets-right-r label {
   padding-bottom: 14px;
 }
@@ -1093,7 +1094,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .navigation-list.nav-footer {
-  columns: 2;  
+  columns: 2;
   column-gap: 155px;
   list-style: none;
   padding-left: 0;
