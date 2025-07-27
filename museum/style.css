@@ -40,9 +40,9 @@
   font-weight: 400;
   font-display: swap;
 }
-* {
+/* * {
   outline: 1px solid rgba(255, 0, 0, 0.2);
-}
+} */
 html {
   scroll-behavior: smooth;
 }
@@ -118,7 +118,12 @@ body {
   margin: 0;
 }
 
-.nav-burger-menu {
+.nav-burger-button,
+.nav-menu-picture-big,
+.nav-menu-images,
+.nav-menu-line,
+.nav-menu-social-links,
+.nav-arrow {
   display: none;
 }
 .navigation-list {
@@ -1355,14 +1360,36 @@ input[type="number"]::-webkit-inner-spin-button {
   .logo-text {
     width: 120px;
   }
-  .nav-burger-menu {
+  
+  .nav-burger-button {
     position: relative;
     width: 32px;
     height: 18px;
     background-image: url("assets/svg/menu/burger-menu.svg");
-    display: flex;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: inline-block;
     cursor: pointer;
     z-index: 10;
+    transition: 0.5s;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    transition: background-image 0.3s ease-in-out;
+  }
+  .nav-burger-button.open {
+    width: 25px;
+    height: 25px;
+    background-image: url("assets/svg/menu/burger-menu-cross.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
+  }
+  .navigation {
+    position: relative;
   }
   .navigation-list {
     font-family: Roboto;
@@ -1373,10 +1400,57 @@ input[type="number"]::-webkit-inner-spin-button {
     margin: 0;
   }
 
-  .nav-header {
-    display: none;
+  
+  .nav-burger-menu {
+    /* transition: right 0.5s ease-in-out; */
+    /* width: 297px; */
+    width: 421px;
+    background-color: var(--bg-dark);
+    height: 585px;
+    margin: 0;
+    position: absolute;
+    /* transform: translateX(-100%); */
+    z-index: 150;
+    padding-top: 83px;
+    padding-left: 55px;
+    left: -1920px;
+    /* visibility: hidden;  */
+    box-sizing: border-box;
+    transition: 0.9s;
+  }
+  .nav-burger-menu.open {
+    /* transform: translateX(0); */
+    margin: 0;
+    visibility: visible;
+    opacity: 1;
+    padding-top: 83px;
+    padding-left: 55px;
+    Left: -980px;
+    transition: 0.9s;
   }
 
+  .nav-header {
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 25px;
+  }
+  .nav-list-item {
+    /* position: relative; */
+    display: flex;
+    flex-direction: row;
+    width: 122px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-arrow {
+    display: inline;
+    width: 12px;
+    height: 12px;
+    background-image: url("assets/svg/menu/nav-arrow.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 /* welcome section */
 
   .welcome-section h2 {
