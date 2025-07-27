@@ -33,9 +33,9 @@
   src: url("assets/fonts/Forum-Regular.ttf");
   font-weight: 400;
 }
-* {
+/* * {
   outline: 1px solid rgba(255, 0, 0, 0.2);
-}
+} */
 html {
   scroll-behavior: smooth;
 }
