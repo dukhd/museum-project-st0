@@ -40,9 +40,9 @@
   font-weight: 400;
   font-display: swap;
 }
-/* * {
+* {
   outline: 1px solid rgba(255, 0, 0, 0.2);
-} */
+}
 html {
   scroll-behavior: smooth;
 }
@@ -1146,6 +1146,7 @@ input[type="number"]::-webkit-inner-spin-button {
 .footer-container {
   /* margin: 0 auto;
   width: 1440px; */
+  width: calc(100% - 20pt);
   display: flex;
   flex-direction: column;
   padding-top: 85px;
@@ -1156,7 +1157,9 @@ input[type="number"]::-webkit-inner-spin-button {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  flex-wrap: wrap;
   padding-bottom: 50px;
+  gap: 40px;
 }
 .footer-top-right {
   display: flex;
@@ -1177,7 +1180,9 @@ input[type="number"]::-webkit-inner-spin-button {
 .navigation-list.nav-footer li:nth-child(6) {
   padding-bottom: 0;
 }
-
+.social-links {
+  margin-left: auto;
+}
 .social-links-list {
   list-style: none;
   display: flex;
