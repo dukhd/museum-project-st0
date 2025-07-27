@@ -2,36 +2,43 @@
   font-family: Roboto;
   src: url("assets/fonts/Roboto-Thin.ttf");
   font-weight: 100;
+  font-display: swap;
 }
 @font-face {
   font-family: Roboto;
   src: url("assets/fonts/Roboto-ExtraLight.ttf");
   font-weight: 200;
+  font-display: swap;
 }
 @font-face {
   font-family: Roboto;
   src: url("assets/fonts/Roboto-Light.ttf");
   font-weight: 300;
+  font-display: swap;
 }
 @font-face {
   font-family: Roboto;
   src: url("assets/fonts/Roboto-Regular.ttf");
   font-weight: 400;
+  font-display: swap;
 }
 @font-face {
   font-family: Roboto;
   src: url("assets/fonts/Roboto-Medium.ttf");
   font-weight: 500;
+  font-display: swap;
 }
 @font-face {
   font-family: Roboto;
   src: url("assets/fonts/Roboto-Bold.ttf");
   font-weight: 700;
+  font-display: swap;
 }
 @font-face {
   font-family: Forum;
   src: url("assets/fonts/Forum-Regular.ttf");
   font-weight: 400;
+  font-display: swap;
 }
 /* * {
   outline: 1px solid rgba(255, 0, 0, 0.2);
