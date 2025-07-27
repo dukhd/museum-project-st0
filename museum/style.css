@@ -461,6 +461,7 @@ h3 {
 .slider-handle {
   position: absolute;
   background-image: url(assets/svg/explore-slider.svg);
+  background-repeat: no-repeat;
   width: 39px;
   height: 700px;
   left: 58.5%;
