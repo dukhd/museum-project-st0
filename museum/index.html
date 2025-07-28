@@ -9,8 +9,8 @@
   <link rel="preload" href="assets/fonts/Forum-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="assets/favicon.ico">
-</head>
-<body>
+  </head>
+  <body>
   <header class="dark-bgr">
     <div class="header-container container">
       <div class=logo>
@@ -18,7 +18,7 @@
         <p class="logo-text">Louvre</p>
       </div>
       <nav class="navigation">
-        <button class="nav-burger-button"></button>
+        <button class="nav-burger-button" aria-label="burger menu"></button>
         <div class="nav-burger-menu">
           <div class="nav-burger-menu-container">
             <ul class="navigation-list nav-header">
@@ -84,19 +84,8 @@
           </a>
         </div>
         <div class="welcome-image-mobile">
-          <img src="assets/img/welcome-slider/1-728.webp"
-          srcset="
-            assets/img/welcome-slider/1-380.webp 380w,
-            assets/img/welcome-slider/1-728.webp 728w
-          "
-          alt="Mona Lisa"
-          sizes="
-            (max-width: 420px) 380px,
-            (max-width: 768px) 728px,
-            728px
-          "
-          width="100%"
-          height="auto">
+          <img src="assets/img/welcome-slider/1-380.webp" alt="Mona Lisa" class="mona-lisa-420" width="380" height="285" fetchpriority="high">
+          <img src="assets/img/welcome-slider/1-728.webp" alt="Mona Lisa" class="mona-lisa-768" width="728" height="546">
         </div>
         <div class="welcome-pagination-container">
           <div class="pagination-text">
@@ -112,8 +101,8 @@
             <div class="pagination-squares-item"></div>
           </div>
           <div class="pagination-arrows">
-            <button class="pagination-arrow-left"></button>
-            <button class="pagination-arrow-right"></button>
+            <button class="pagination-arrow-left" aria-label="arrow left"></button>
+            <button class="pagination-arrow-right" aria-label="arrow right"></button>
           </div>
         </div>
       </section>
@@ -319,22 +308,22 @@
         <h2 class="section-title white">Art Gallery</h2>
         <div class="gallery-grid">
           <div class="gallery-column first-column">
-            <img src="assets/img/galery/galery2.webp" alt="gallery-art">
-            <img src="assets/img/galery/galery9.webp" alt="gallery-art">
-            <img src="assets/img/galery/galery4.webp" alt="gallery-art">
-            <img src="assets/img/galery/galery6.webp" alt="gallery-art">
+            <img src="assets/img/galery/galery2.webp" alt="gallery-art" loading="lazy">
+            <img src="assets/img/galery/galery9.webp" alt="gallery-art" loading="lazy">
+            <img src="assets/img/galery/galery4.webp" alt="gallery-art" loading="lazy">
+            <img src="assets/img/galery/galery6.webp" alt="gallery-art" loading="lazy">
           </div>
           <div class="gallery-column second-column">
-            <img src="assets/img/galery/galery1.webp" alt="gallery-art">
-            <img src="assets/img/galery/galery8.webp" alt="gallery-art">
-            <img src="assets/img/galery/galery3.webp" alt="gallery-art">
-            <img src="assets/img/galery/galery5.webp" alt="gallery-art">
+            <img src="assets/img/galery/galery1.webp" alt="gallery-art" loading="lazy">
+            <img src="assets/img/galery/galery8.webp" alt="gallery-art" loading="lazy">
+            <img src="assets/img/galery/galery3.webp" alt="gallery-art" loading="lazy">
+            <img src="assets/img/galery/galery5.webp" alt="gallery-art" loading="lazy">
           </div>
           <div class="gallery-column third-column">
-            <img src="assets/img/galery/galery7.webp" alt="gallery-art">
-            <img src="assets/img/galery/galery10.webp" alt="gallery-art">
-            <img src="assets/img/galery/galery15.webp" alt="gallery-art">
-            <img src="assets/img/galery/galery12.webp" alt="gallery-art">
+            <img src="assets/img/galery/galery7.webp" alt="gallery-art" loading="lazy">
+            <img src="assets/img/galery/galery10.webp" alt="gallery-art" loading="lazy">
+            <img src="assets/img/galery/galery15.webp" alt="gallery-art" loading="lazy">
+            <img src="assets/img/galery/galery12.webp" alt="gallery-art" loading="lazy">
           </div>
         </div>
         <div class="gallery-gradient"></div>
@@ -379,23 +368,23 @@
                 <form class="tickets-right-basic">
                   <label for="quantity-b">Basic 18+</label>
                   <div class="input-wrapper">
-                    <button class="decrease">−</button>
+                    <button class="decrease" aria-label="minus">−</button>
                     <input type="number" id="quantity-b" name="quantity" min="0" max="10" step="1" value="1" required>
-                    <button class="increase">+</button>
+                    <button class="increase" aria-label="plus">+</button>
                   </div>
                 </form>
                 <form class="tickets-right-senior">
                   <label for="quantity-s">Senior 65+</label>
                   <div class="input-wrapper">
-                    <button class="decrease">−</button>
+                    <button class="decrease" aria-label="minus">−</button>
                     <input type="number" id="quantity-s" name="quantity" min="0" max="10" step="1" value="1" required>
-                    <button class="increase">+</button>
+                    <button class="increase" aria-label="plus">+</button>
                   </div>
                 </form>
                 <p class="price">Total €<span class="span-price">220</span></p>
               </div>
               <div class="button-buy-now">
-                <button>Buy Now</button>
+                <button aria-label="Buy Now">Buy Now</button>
               </div>
             </div>
           </div>
@@ -472,6 +461,6 @@
       <!-- footer-bottom end -->
     </div>
   </footer>
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
