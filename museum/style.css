@@ -179,45 +179,6 @@ body {
 .welcome-image-mobile img {
   display: none;
 }
-
-@media (max-width: 768px) {
-    .welcome-image-mobile {
-    max-width: 728px;
-    width: 100%;
-    margin: 0 auto;
-  }
-  .mona-lisa-420 {
-    display: none;
-  }
-  .welcome-image-mobile .mona-lisa-768 {
-    width: 100%;
-    /* max-width: 728px; */
-    height: auto;
-    /* max-height: 546px; */
-    display: block;
-    margin-bottom: 30px;
-  }
-}
-@media (max-width: 420px) {
-  .welcome-image-mobile {
-    max-width: 380px;
-    width: 100%;
-    margin: 0 auto;
-  }
-  .welcome-image-mobile .mona-lisa-768 {
-    display: none;
-  }
-  .welcome-image-mobile .mona-lisa-420 {
-    width: 100%;
-    max-width: 100%;
-    max-height: 100%;
-    height: auto;
-    /* max-width: 380px;
-    max-height: 285px; */
-    display: block;
-    margin-bottom: 20px;
-  }
-}
 .title-hiden {
   position: absolute;
   width: 1px;
@@ -1966,22 +1927,19 @@ input[type="number"]::-webkit-inner-spin-button {
   .welcome-section a {
     display: none;
   }
-  /* .welcome-image-mobile {
+  .welcome-image-mobile {
     max-width: 728px;
     width: 100%;
     margin: 0 auto;
   }
-  .mona-lisa-420 {
-    display: none;
-  }
-  .welcome-image-mobile .mona-lisa-768 {
+  .welcome-image-mobile img {
     width: 100%;
-    max-width: 728px;
+    /* max-width: 728px; */
     height: auto;
-    max-height: 546px;
+    /* max-height: 546px; */
     display: block;
     margin-bottom: 30px;
-  } */
+  }
   .welcome-pagination-container {
     position: static;
     background: none;
@@ -2445,24 +2403,21 @@ input[type="number"]::-webkit-inner-spin-button {
     line-height: 19px;
     padding-bottom: 50px;
   }
-  /* .welcome-image-mobile {
+  .welcome-image-mobile {
     max-width: 380px;
     width: 100%;
     margin: 0 auto;
   }
-  .welcome-image-mobile .mona-lisa-768 {
-    display: none;
-  }
-  .welcome-image-mobile .mona-lisa-420 {
+  .welcome-image-mobile img {
     width: 100%;
     max-width: 100%;
     max-height: 100%;
     height: auto;
-    max-width: 380px;
-    max-height: 285px;
+    /* max-width: 380px;
+    max-height: 285px; */
     display: block;
     margin-bottom: 20px;
-  } */
+  }
   .welcome-pagination-container {
     column-gap: 25px;
 
