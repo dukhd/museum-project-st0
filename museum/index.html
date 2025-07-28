@@ -6,6 +6,8 @@
   <title>museum</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="assets/favicon.ico">
+  <link rel="preload" as="font" href="assets/fonts/Roboto-Light.ttf" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" as="font" href="assets/fonts/Forum-Regular.ttf" type="font/ttf" crossorigin="anonymous">
 </head>
 <body>
   <header class="dark-bgr">
@@ -81,7 +83,19 @@
           </a>
         </div>
         <div class="welcome-image-mobile">
-          <img src="assets/img/welcome-slider/1.webp" alt="Mona Lisa" width="1000" height="750">
+          <img src="assets/img/welcome-slider/1-728.webp"
+          srcset="
+            assets/img/welcome-slider/1-380.webp 380w,
+            assets/img/welcome-slider/1-728.webp 728w
+          "
+          alt="Mona Lisa"
+          sizes="
+            (max-width: 420px) 380px,
+            (max-width: 768px) 728px,
+            728px
+          "
+          width="100%"
+          height="auto">
         </div>
         <div class="welcome-pagination-container">
           <div class="pagination-text">
@@ -206,7 +220,22 @@
           <p>Enter and visit one of the most famous museums in the world and enjoy masterpieces such as Mona Lisa or Hammurabi's Code</p>
         </div>
         <div class="video-center">
-          <img src="assets/video/poster0-0.webp" alt="Video main">
+          <img src="assets/video/poster0-0.webp" 
+          srcset="
+            assets/video/poster0-0-380.webp 380w,
+            assets/video/poster0-0-728.webp 728w,
+            assets/video/poster0-0.webp 1440w
+          "
+          sizes="
+            (max-width: 420px) 380px,
+            (max-width: 768px) 728px,
+            1440px
+          "
+          width="100%"
+          height="auto"
+          
+          alt="Video main"
+          >
           <div class="play-big-button"></div>
           <div class="play-line-after-768">
             <div class="play-line-dot-after-768"></div>
