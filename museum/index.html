@@ -331,63 +331,76 @@
       
     </div>
     <!-- gallery section end -->
-    <!-- tickets section start -->
+  <!-- tickets section start -->
     <div class="white-bgr">
       <section class="section container tickets-section" id="tickets">
         <h2 class="section-title gold">Buy Tickets</h2>
         <div class="big-red-line"></div>
+
         <div class="tickets-container">
+
           <div class="tickets-left">
             <img src="assets/img/buy-tickets-img.webp" alt="Buy tickets" width="720" height="550">
           </div>
+          <!-- calculator--------------------------------------------------------------------------------------------- -->
           <div class="tickets-right">
-            <div class="tickets-right-l">
-              <form class="tickets-center-types">
-                <p class="tickets-center-title">Ticket Type</p>
-                <div class="radio-list">
-                  <ul>
-                    <li>
-                      <input type="radio" checked="checked" name="radio" id="permanent">
-                      <label for="permanent">Permanent exhibition</label>
-                    </li>
-                    <li>
-                      <input type="radio" name="radio" id="temporary">
-                      <label for="temporary">Temporary exhibition</label>
-                    </li>
-                    <li>
-                      <input type="radio" name="radio" id="combined">
-                      <label for="combined">Combined Admission</label>
-                    </li>
-                  </ul>
+            <form class="tickets-types-form">
+
+              <fieldset class="tickets-form-left">
+
+                <legend class="tickets-type-title">Ticket Type</legend>
+
+                <div class="ticket-type-wrapper">
+                  <input type="radio" checked="checked" name="radio" id="permanent">
+                  <label for="permanent">Permanent exhibition</label>
                 </div>
-              </form>
-            </div>
-            <div class="tickets-right-r">
-              <p class="tickets-right-title">Amount</p>
-              <div class="amount-form-container">
-                <form class="tickets-right-basic">
+
+                <div class="ticket-type-wrapper">
+                  <input type="radio" name="radio" id="temporary">
+                  <label for="temporary">Temporary exhibition</label>
+                </div>
+
+                <div class="ticket-type-wrapper">
+                  <input type="radio" name="radio" id="combined">
+                  <label for="combined">Combined admission</label>
+                </div>
+
+              </fieldset>
+              <fieldset class="tickets-form-right">
+
+                <legend class="tickets-amount-title">Amount</legend>
+
+                <div class="amount-element-wrapper">
+
                   <label for="quantity-b">Basic 18+</label>
-                  <div class="input-wrapper">
-                    <button class="decrease" aria-label="minus">−</button>
-                    <input type="number" id="quantity-b" name="quantity" min="0" max="10" step="1" value="1" required>
-                    <button class="increase" aria-label="plus">+</button>
+                    <div class="quantity-wrapper">
+                    <button type="button" class="decrease" aria-label="minus" id="minus-btn-basic">−</button>
+                    <input type="number" id="quantity-b" name="quantity" min="0" max="150" step="1" value="0" required>
+                    <button type="button" class="increase" aria-label="plus" id="plus-btn-basic">+</button>
                   </div>
-                </form>
-                <form class="tickets-right-senior">
+
+                </div>
+
+                <div class="amount-element-wrapper">
+
                   <label for="quantity-s">Senior 65+</label>
-                  <div class="input-wrapper">
-                    <button class="decrease" aria-label="minus">−</button>
-                    <input type="number" id="quantity-s" name="quantity" min="0" max="10" step="1" value="1" required>
-                    <button class="increase" aria-label="plus">+</button>
+                  <div class="quantity-wrapper">
+                    <button type="button" class="decrease" aria-label="minus" id="minus-btn-senior">−</button>
+                    <input type="number" id="quantity-s" name="quantity" min="0" max="150" step="1" value="0" required>
+                    <button type="button" class="increase" aria-label="plus" id="plus-btn-senior">+</button>
                   </div>
-                </form>
-                <p class="price">Total €<span class="span-price">220</span></p>
-              </div>
-              <div class="button-buy-now">
-                <button aria-label="Buy Now">Buy Now</button>
-              </div>
-            </div>
+                  
+                </div>
+              </fieldset>
+
+              <output class="price" id="final-price">Total €<span class="span-price">220</span></output>
+
+              <button type="submit" aria-label="Buy Now" class="button-buy-now" id="submit">Buy Now</button>
+
+            </form>
+
           </div>
+          <!-- calculator--------------------------------------------------------------------------------------------- -->
         </div>
       </section>
     </div>

@@ -963,11 +963,9 @@ h3 {
   z-index: 2;
 }
 
-/* tickets section */
+/* tickets section -------------------------------------------------------------------------------------------*/
 
 .tickets-section {
-  position: relative;
-  z-index: 2;
   background: var(--font-white);
   width: calc(100% - 20pt);
 }
@@ -983,12 +981,11 @@ h3 {
   max-height: 550px;
   object-fit: cover;
 }
-.tickets-right {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 100%;
-  max-width: 660px;
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
 }
 label {
   color: var(--bg-dark);
@@ -997,7 +994,9 @@ label {
   font-weight: 300;
   line-height: 26px;
 }
-.tickets-right p {
+
+legend,
+output {
   color: var(--bg-dark);
   font-family: Roboto;
   font-size: 28px;
@@ -1005,30 +1004,36 @@ label {
   margin: 0;
   line-height: 33px;
 }
-.price {
-  padding-top: 40px;
-  padding-bottom: 60px;
+output {
   letter-spacing: 1.65px;
-  line-height: 33px;
+  text-align: right;
+  margin-bottom: 10px;
 }
-.tickets-center-title {
-  padding-bottom: 50px;
+
+
+.tickets-types-form {
+  display: grid;
+  grid-template-columns: repeat(2);
+  grid-template-rows: repeat(3);
+  grid-column-gap: 240px;
+  grid-row-gap: 50px;
 }
-.tickets-right-title {
-  padding-bottom: 25px;
-}
-.radio-list ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+
+.tickets-form-left { grid-area: 1 / 1 / 2 / 2; }
+.tickets-form-right { grid-area: 1 / 2 / 2 / 3; }
+output { grid-area: 2 / 2 / 3 / 3; }
+.button-buy-now { grid-area: 3 / 2 / 4 / 3; }
+
+.tickets-form-left {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  padding-top: 50px;
+  gap: 25px;
 }
-.radio-list li {
+.ticket-type-wrapper {
   display: flex;
   align-items: center;
-  column-gap: 23px;
+  gap: 23px;
 }
 input[type="radio"] {
   accent-color: var(--bg-dark);
@@ -1044,37 +1049,34 @@ input[type="radio"] {
 input[type="radio"]:hover {
   accent-color: var(--font-gold);
 }
-.tickets-right-r {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
 
-.tickets-right-basic, 
-.tickets-right-senior {
-  display: flex;
-  flex-direction: column;
-}
 
-input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-.input-wrapper {
+
+.tickets-form-right {
   display: flex;
-  align-items: center;
-  width: 150px;
-  height: 50px;
-  border: 3px solid black;
-  overflow: hidden; 
+  flex-direction: column;
+  align-items: flex-end;
+  padding-top: 25px;
+  gap: 10px;
 }
 
-.tickets-right-r label {
-  padding-bottom: 14px;
+.tickets-amount-title {
+  text-align: right;
 }
-.input-wrapper input {
+
+.amount-element-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.tickets-form-right input {
   color: var(--bg-dark);
   font-family: Roboto;
   font-size: 22px;
@@ -1082,7 +1084,16 @@ input[type="number"]::-webkit-inner-spin-button {
   text-align: center;
   border: none;
 }
-.input-wrapper button {
+.quantity-wrapper {
+  display: flex;
+  align-items: center;
+  width: 144px;
+  height: 44px;
+  border: 3px solid black;
+  overflow: hidden; 
+
+}
+.tickets-form-right button {
   width: 44px;
   height: 44px;
   font-family: Roboto;
@@ -1097,16 +1108,11 @@ input[type="number"]::-webkit-inner-spin-button {
   transition: 0.6s;
 }
 
-.input-wrapper button:hover {
+.tickets-form-right button:hover {
   color: var(--font-gold);
 }
-.amount-form-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-}
-.button-buy-now button {
+
+.button-buy-now {
   background-color: var(--bg-dark);
   color: var(--font-white);
   width: 175px;
@@ -1124,11 +1130,11 @@ input[type="number"]::-webkit-inner-spin-button {
   transition: 0.6s;
 }
 
-.button-buy-now button:hover {
+.button-buy-now:hover {
   background-color: var(--font-gold);
   color: var(--bg-dark);
 }
-/* parallax */
+/* parallax -----------------------------------------------------------------------------------------------*/
 
 
 .parallax {
@@ -2380,7 +2386,7 @@ input[type="number"]::-webkit-inner-spin-button {
   }
 
 
-    /* contacts section */
+    /* contacts section ----------------------------------------------------------------------------------------- */
   .contacts-section {
     /* width: 728px; */
     width: calc(100% - 20pt);
