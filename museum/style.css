@@ -1012,23 +1012,23 @@ output {
 
 
 .tickets-types-form {
-  display: grid;
-  grid-template-columns: repeat(2);
-  grid-template-rows: repeat(3);
-  grid-column-gap: 240px;
-  grid-row-gap: 50px;
+  display: flex;
+  justify-content: space-between;
+  gap: 240px;
 }
 
-.tickets-form-left { grid-area: 1 / 1 / 2 / 2; }
+/* .tickets-form-left { grid-area: 1 / 1 / 2 / 2; }
 .tickets-form-right { grid-area: 1 / 2 / 2 / 3; }
 output { grid-area: 2 / 2 / 3 / 3; }
-.button-buy-now { grid-area: 3 / 2 / 4 / 3; }
+.button-buy-now { grid-area: 3 / 2 / 4 / 3; } */
 
 .tickets-form-left {
   display: flex;
   flex-direction: column;
   padding-top: 50px;
   gap: 25px;
+  flex: 0 0 auto;
+
 }
 .ticket-type-wrapper {
   display: flex;
@@ -1056,8 +1056,15 @@ input[type="number"]::-webkit-inner-spin-button {
   margin: 0;
 }
 
+.tickets-form-right-container {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; 
+  gap: 50px;
 
-.tickets-form-right {
+}
+.tickets-form-right-container .tickets-form-right {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -1378,7 +1385,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 
 
-.booking-tickets-container {
+.booking-tickets-container.open {
   display: flex;
   justify-content: center;
   gap: 40px;
@@ -1428,8 +1435,8 @@ h2.bt-title {
   display: flex;
   justify-content: space-between;
 }
-input, 
-select {
+.booking-tickets-container input, 
+.booking-tickets-container select {
   padding-inline-start: 45px;
   font-family: Roboto;
   font-size: 18px;
@@ -1437,7 +1444,7 @@ select {
   line-height: 21px;
 }
 
-input::placeholder {
+.booking-tickets-container input::placeholder {
   color: #030303;
 }
 #bt-date,
@@ -1482,7 +1489,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   url("assets/svg/booking-form/arrow-down.svg") no-repeat right 15px center;
   background-size: 15px 15px, 17px 17px;
 }
-input[type="number"]::-webkit-inner-spin-button {
+.booking-tickets-container input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }

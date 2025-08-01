@@ -366,37 +366,39 @@
                 </div>
 
               </fieldset>
-              <fieldset class="tickets-form-right">
+              
+              <div class="tickets-form-right-container">
+                <fieldset class="tickets-form-right">
 
-                <legend class="tickets-amount-title">Amount</legend>
+                  <legend class="tickets-amount-title">Amount</legend>
 
-                <div class="amount-element-wrapper">
+                  <div class="amount-element-wrapper">
 
-                  <label for="quantity-b">Basic 18+</label>
+                    <label for="quantity-b">Basic 18+</label>
+                      <div class="quantity-wrapper">
+                      <button type="button" class="decrease" aria-label="minus" id="minus-btn-basic">−</button>
+                      <input type="number" id="quantity-b" name="quantity" min="0" max="150" step="1" value="0" required>
+                      <button type="button" class="increase" aria-label="plus" id="plus-btn-basic">+</button>
+                    </div>
+
+                  </div>
+
+                  <div class="amount-element-wrapper">
+
+                    <label for="quantity-s">Senior 65+</label>
                     <div class="quantity-wrapper">
-                    <button type="button" class="decrease" aria-label="minus" id="minus-btn-basic">−</button>
-                    <input type="number" id="quantity-b" name="quantity" min="0" max="150" step="1" value="0" required>
-                    <button type="button" class="increase" aria-label="plus" id="plus-btn-basic">+</button>
+                      <button type="button" class="decrease" aria-label="minus" id="minus-btn-senior">−</button>
+                      <input type="number" id="quantity-s" name="quantity" min="0" max="150" step="1" value="0" required>
+                      <button type="button" class="increase" aria-label="plus" id="plus-btn-senior">+</button>
+                    </div>
+                    
                   </div>
+                </fieldset>
 
-                </div>
+                <output class="price" id="final-price">Total €<span class="span-price">220</span></output>
 
-                <div class="amount-element-wrapper">
-
-                  <label for="quantity-s">Senior 65+</label>
-                  <div class="quantity-wrapper">
-                    <button type="button" class="decrease" aria-label="minus" id="minus-btn-senior">−</button>
-                    <input type="number" id="quantity-s" name="quantity" min="0" max="150" step="1" value="0" required>
-                    <button type="button" class="increase" aria-label="plus" id="plus-btn-senior">+</button>
-                  </div>
-                  
-                </div>
-              </fieldset>
-
-              <output class="price" id="final-price">Total €<span class="span-price">220</span></output>
-
-              <button type="submit" aria-label="Buy Now" class="button-buy-now" id="submit">Buy Now</button>
-
+                <button type="submit" aria-label="Buy Now" class="button-buy-now" id="submit">Buy Now</button>
+              </div>
             </form>
 
           </div>
@@ -404,7 +406,7 @@
         </div>
       </section>
     </div>
-    <!-- tickets section end -->
+  <!-- tickets section end -->
 
     <!-- booking tickets window start ------------------------------------- -->
     <div class="booking-tickets-container container" id="booking-tickets-window">
