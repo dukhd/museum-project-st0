@@ -405,6 +405,143 @@
       </section>
     </div>
     <!-- tickets section end -->
+
+    <!-- booking tickets window start ------------------------------------- -->
+    <div class="booking-tickets-container container" id="booking-tickets-window">
+      <div class="bt-left">
+        <div class="logo-gold"></div>
+        <h2 class="bt-title">Booking tickets</h2>
+        <span class="bt-left-text bt-red">Tour to Louvre</span>
+        <div class="bt-line"></div>
+        <div class="bt-timeslot">
+          <input type="date" id="bt-date" name="date" required class="icon-date">
+          <select id="bt-time" name="time" required class="icon-time">
+            <option value="" hidden>Time</option>
+            <option value="09:00">09:00</option>
+            <option value="09:30">09:30</option>
+            <option value="10:00">10:00</option>
+            <option value="10:30">10:30</option>
+            <option value="11:00">11:00</option>
+            <option value="11:30">11:30</option>
+            <option value="12:00">12:00</option>
+            <option value="12:30">12:30</option>
+            <option value="13:00">13:00</option>
+            <option value="13:30">13:30</option>
+            <option value="14:00">14:00</option>
+            <option value="14:30">14:30</option>
+            <option value="15:00">15:00</option>
+            <option value="15:30">15:30</option>
+            <option value="16:00">16:00</option>
+            <option value="16:30">16:30</option>
+            <option value="17:00">17:00</option>
+            <option value="17:30">17:30</option>
+            <option value="18:00">18:00</option>
+          </select>
+        </div>
+        <input type="text" id="name" name="name" 
+          required 
+          size="45"
+          placeholder="Name"
+          pattern="^[a-zA-Zа-яА-Я ]{3,15}$"
+          title="Use 3 to 15 letters (Latin or Cyrillic) and spaces only"
+          class="icon-name">
+        <input type="email"
+          required
+          placeholder="E-mail"
+          pattern="^[a-zA-Z0-9_-]{3,15}@[a-zA-Z]{4,}\.[a-zA-Z]{2,}$"
+          class="icon-email">
+        <input type="tel"
+          required
+          placeholder="Phone"
+          pattern="^(\d{2,3}([- ]?)){3,4}\d{2,3}$"
+          class="icon-tel">
+        <select name="ticket type" id="bt-ticket-type" required class="icon-tickets">
+          <option value="" hidden>Ticket Type</option>
+          <option value="1">Permanent exhibition</option>
+          <option value="2">Temporary exhibition</option>
+          <option value="3">Combined admission</option>
+        </select>
+        <form class="bt-tickets-amount">
+          <fieldset class="bt-tickets-amount-fieldset">
+
+            <legend class="bt-tickets-amount-title">Entry ticket</legend>
+            <div class="bt-tickets-amount-line"></div>
+
+            <div class="bt-element-wrapper">
+              <label for="bt-quantity-b">Basic 18+</label>
+                <div class="bt-quantity-wrapper">
+                  <button type="button" class="bt-decrease" aria-label="minus" id="bt-minus-btn-basic">−</button>
+                  <input type="number" id="bt-quantity-b" name="quantity" min="0" max="150" step="1" value="0" required>
+                  <button type="button" class="bt-increase" aria-label="plus" id="bt-plus-btn-basic">+</button>
+                </div>
+            </div>
+
+            <div class="bt-element-wrapper">
+              <label for="bt-quantity-s">Senior 65+</label>
+                <div class="bt-quantity-wrapper">
+                  <button type="button" class="bt-decrease" aria-label="minus" id="bt-minus-btn-senior">−</button>
+                  <input type="number" id="bt-quantity-s" name="quantity" min="0" max="150" step="1" value="0" required>
+                  <button type="button" class="bt-increase" aria-label="plus" id="bt-plus-btn-senior">+</button>
+                </div>
+                
+            </div>
+          </fieldset>
+        </form>
+
+      </div>
+      <div class="bt-right">
+        <div class="bt-overview">
+          <div class="bt-overview-text">
+            <span>Overview</span>
+            <span>Tour to Louvre</span>
+            <output id="date-output" for="bt-date" class="icon-date-overview">Friday, August 19</output>
+            <output id="time-output" for="bt-time" class="icon-time-overview">09 : 00</output>
+            <output id="bt-ticket-type-output" for="bt-ticket-type" class="icon-t-type">Temporary exhibition</output>
+          </div>
+          <div class="bt-overview-img">
+            <img src="assets/img/booking-tickets-img.png" alt="Louvre" width="150" height="120">
+          </div>
+        </div>
+        <div class="bt-price-breakdown">
+          <div class="bt-basic-total">
+            <div class="bt-basic-total-left">
+              <output class="bt-count" id="bt-count-basic">2</output>
+              <span>Basic</span>
+              <output>(20 €)</output>
+            </div>
+            <div class="bt-basic-total-right">
+              <output>40 €</output>
+            </div>
+          </div>
+
+          <div class="bt-senior-total">
+            <div class="bt-senior-total-left">
+              <output class="bt-count" id="bt-count-senior">2</output>
+              <span>Senior</span>
+              <output>(10 €)</output>
+            </div>
+            <div class="bt-senior-total-right">
+              <output>20 €</output>
+            </div>
+          </div>
+
+          <div class="bt-price-breakdown-line"></div>
+
+          <div class="bt-total-amount">
+            <span>Total:</span>
+            <output>60 €</output>
+          </div>
+
+        </div>
+        <div class="bt-bank-cards">
+          <div class="bt-bank-card-item1"></div>
+          <div class="bt-bank-card-item2"></div>
+        </div>
+        <button class="bt-book-button">Book</button>
+      </div>
+    </div>
+    <!-- booking tickets window end ---------------------------------------- -->
+
     <div class="parallax-container">
       <div class="parallax"></div>
     </div>
