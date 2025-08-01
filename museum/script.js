@@ -92,7 +92,7 @@ function updateAmount() { //updateAmount start
   localStorage.setItem('ticketCountBasic', ticketCountBasic);
   localStorage.setItem('ticketCountSenior', ticketCountSenior);
   localStorage.setItem('selectedTicketType', selectedTicketType);
-  localStorage.setItem('finalPrice', totalAmount.toFixed(2));
+  localStorage.setItem('finalPrice', amount.toFixed(2));
 } // updateAmount finish
 
 // keep info start
@@ -145,3 +145,82 @@ ticketTypeCombined.onchange = updateAmount
 
 loadSavedState();
 // next section
+
+// open booking tickets window
+const bookingWindow = document.getElementById("booking-tickets-window");
+const overlay = document.getElementById("overlay");
+const selectTicket = document.getElementById("bt-ticket-type");
+
+submitBtn.addEventListener("click", e => {
+  e.preventDefault();
+  bookingWindow.classList.add("active");
+  overlay.classList.add("active");
+  const chosen = document.querySelector('input[name="radio"]:checked').value;
+  selectTicket.value = chosen;
+});
+
+overlay.addEventListener("click", () => {
+  bookingWindow.classList.remove("active");
+  overlay.classList.remove("active");
+});
+
+
+// const closeBtn = bookingWindow.querySelector(".close-btn");
+
+// if (closeBtn) {
+//   closeBtn.addEventListener("click", () => {
+//     bookingWindow.classList.remove("active");
+//     overlay.classList.remove("active");
+//   });
+// }
+
+
+// choose only today date function and output start
+const dateInput = document.getElementById("bt-date");
+const dateOutput = document.getElementById("date-output");
+
+function formatDate(dateStr) {
+  const date = new Date(dateStr + 'T00:00:00');
+  const weekday = date.toLocaleDateString("en-US", { weekday: "long" });
+  const monthDay = date.toLocaleDateString("en-US", { month: "long", day: "numeric" });
+  return `${weekday}, ${monthDay}`;
+}
+dateInput.addEventListener("input", () => {
+  dateOutput.value = formatDate(dateInput.value);
+});
+
+const now = new Date();
+const year = now.getFullYear();
+const month = String(now.getMonth() + 1).padStart(2, "0");
+const day = String(now.getDate()).padStart(2, "0");
+const today = `${year}-${month}-${day}`;
+
+dateInput.min = today;
+dateInput.value = today;
+dateOutput.value = formatDate(today);
+// choose only today date function and output end
+
+// time output start
+const timeInput = document.getElementById("bt-time");
+const timeOutput = document.getElementById("time-output");
+
+function formatTime(timeStr) {
+  const [hours, minutes] = timeStr.split(":");
+  return `${hours} : ${minutes}`;
+}
+
+timeInput.addEventListener("input", () => {
+  timeOutput.value = formatTime(timeInput.value);
+});
+
+// time output start
+// selected type of ticket output start
+const ticketTypeInput = document.getElementById("bt-ticket-type");
+const ticketTypeOutput = document.getElementById("bt-ticket-type-output");
+
+ticketTypeInput.addEventListener("input", () => {
+  const selectedOption = ticketTypeInput.options[ticketTypeInput.selectedIndex]; 
+  ticketTypeOutput.value = selectedOption.text;
+});
+
+// selected type of ticket output end

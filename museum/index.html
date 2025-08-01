@@ -351,17 +351,17 @@
                 <legend class="tickets-type-title">Ticket Type</legend>
 
                 <div class="ticket-type-wrapper">
-                  <input type="radio" checked="checked" name="radio" id="permanent">
+                  <input type="radio" checked="checked" name="radio" id="permanent" value="1">
                   <label for="permanent">Permanent exhibition</label>
                 </div>
 
                 <div class="ticket-type-wrapper">
-                  <input type="radio" name="radio" id="temporary">
+                  <input type="radio" name="radio" id="temporary" value="2">
                   <label for="temporary">Temporary exhibition</label>
                 </div>
 
                 <div class="ticket-type-wrapper">
-                  <input type="radio" name="radio" id="combined">
+                  <input type="radio" name="radio" id="combined" value="3">
                   <label for="combined">Combined admission</label>
                 </div>
 
@@ -409,7 +409,9 @@
   <!-- tickets section end -->
 
     <!-- booking tickets window start ------------------------------------- -->
-    <div class="booking-tickets-container container" id="booking-tickets-window">
+    <div class="overlay" id="overlay"></div>
+    <div class="booking-tickets-window-wrapper" id="booking-tickets-window">
+      <div class="booking-tickets-container">
       <div class="bt-left">
         <div class="logo-gold"></div>
         <h2 class="bt-title">Booking tickets</h2>
@@ -509,10 +511,10 @@
             <div class="bt-basic-total-left">
               <output class="bt-count" id="bt-count-basic">2</output>
               <span>Basic</span>
-              <output>(20 €)</output>
+              <output class="bt-count-price" id="bt-count-price-b">(20 €)</output>
             </div>
             <div class="bt-basic-total-right">
-              <output>40 €</output>
+              <output class="bt-count-price" id="bt-counted-price-b">40 €</output>
             </div>
           </div>
 
@@ -520,10 +522,10 @@
             <div class="bt-senior-total-left">
               <output class="bt-count" id="bt-count-senior">2</output>
               <span>Senior</span>
-              <output>(10 €)</output>
+              <output class="bt-count-price" id="bt-count-price-s">(10 €)</output>
             </div>
             <div class="bt-senior-total-right">
-              <output>20 €</output>
+              <output class="bt-count-price" id="bt-counted-price-s">20 €</output>
             </div>
           </div>
 
@@ -531,7 +533,7 @@
 
           <div class="bt-total-amount">
             <span>Total:</span>
-            <output>60 €</output>
+            <output class="bt-total-output" id="bt-total-output">60 €</output>
           </div>
 
         </div>
@@ -541,7 +543,9 @@
         </div>
         <button class="bt-book-button">Book</button>
       </div>
+      </div>
     </div>
+    
     <!-- booking tickets window end ---------------------------------------- -->
 
     <div class="parallax-container">
