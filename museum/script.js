@@ -84,9 +84,11 @@ function updateAmount() { //updateAmount start
     amountSenior = priceCombinedSenior
     selectedTicketType = 'combined'
   }
-
-  const amount = (ticketCountBasic * amountBasic) + (ticketCountSenior * amountSenior)
+  const priceAmountBasic = ticketCountBasic * amountBasic
+  const priceAmountSenior = ticketCountSenior * amountSenior
+  const amount = priceAmountBasic + priceAmountSenior
   finalPrice.querySelector('.span-price').textContent = amount.toFixed(2)
+  
 
   // keep info
   localStorage.setItem('ticketCountBasic', ticketCountBasic);
@@ -155,24 +157,116 @@ submitBtn.addEventListener("click", e => {
   e.preventDefault();
   bookingWindow.classList.add("active");
   overlay.classList.add("active");
+
   const chosen = document.querySelector('input[name="radio"]:checked').value;
   selectTicket.value = chosen;
+
+  let ticketCountBasic = Number(ticketQuantityBasic.value);
+  let ticketCountSenior = Number(ticketQuantitySenior.value);
+
+  let amountBasic = 0;
+  let amountSenior = 0;
+
+  if (ticketTypePermanent.checked) {
+    amountBasic = pricePermanentBasic;
+    amountSenior = pricePermanentSenior;
+  } else if (ticketTypeTemporary.checked) {
+    amountBasic = priceTemporaryBasic;
+    amountSenior = priceTemporarySenior;
+  } else if (ticketTypeCombined.checked) {
+    amountBasic = priceCombinedBasic;
+    amountSenior = priceCombinedSenior;
+  }
+
+  const priceAmountBasic = ticketCountBasic * amountBasic;
+  const priceAmountSenior = ticketCountSenior * amountSenior;
+  const totalAmount = priceAmountBasic + priceAmountSenior;
+
+
+  document.getElementById("bt-unit-basic").textContent = ticketCountBasic;
+  document.getElementById("bt-unit-senior").textContent = ticketCountSenior;
+  document.getElementById("bt-quantity-b").value = ticketCountBasic;
+  document.getElementById("bt-quantity-s").value = ticketCountSenior;
+
+  document.getElementById("bt-unit-price-b").textContent = `(${amountBasic} €)`;
+  document.getElementById("bt-unit-price-s").textContent = `(${amountSenior} €)`;
+
+  document.getElementById("bt-counted-price-b").textContent = `${priceAmountBasic} €`;
+  document.getElementById("bt-counted-price-s").textContent = `${priceAmountSenior} €`;
+
+  document.getElementById("bt-total-output").textContent = `${totalAmount} €`;
+});
+//  update Breakdown in the window start
+function updateBreakdown() {
+
+  const ticketType = document.getElementById("bt-ticket-type").value;
+
+  let amountBasic = 0;
+  let amountSenior = 0;
+
+  if (ticketType === "1") {
+    amountBasic = pricePermanentBasic;
+    amountSenior = pricePermanentSenior;
+  } else if (ticketType === "2") {
+    amountBasic = priceTemporaryBasic;
+    amountSenior = priceTemporarySenior;
+  } else if (ticketType === "3") {
+    amountBasic = priceCombinedBasic;
+    amountSenior = priceCombinedSenior;
+  }
+
+  const ticketCountBasic = Number(document.getElementById("bt-quantity-b").value);
+  const ticketCountSenior = Number(document.getElementById("bt-quantity-s").value);
+
+  const priceAmountBasic = ticketCountBasic * amountBasic;
+  const priceAmountSenior = ticketCountSenior * amountSenior;
+  const totalAmount = priceAmountBasic + priceAmountSenior;
+
+  document.getElementById("bt-unit-basic").textContent = ticketCountBasic;
+  document.getElementById("bt-unit-senior").textContent = ticketCountSenior;
+
+  document.getElementById("bt-unit-price-b").textContent = `(${amountBasic} €)`;
+  document.getElementById("bt-unit-price-s").textContent = `(${amountSenior} €)`;
+
+  document.getElementById("bt-counted-price-b").textContent = `${priceAmountBasic} €`;
+  document.getElementById("bt-counted-price-s").textContent = `${priceAmountSenior} €`;
+
+  document.getElementById("bt-total-output").textContent = `${totalAmount} €`;
+}
+
+document.getElementById("bt-plus-btn-basic").addEventListener("click", () => {
+  let input = document.getElementById("bt-quantity-b");
+  input.value = Number(input.value) + 1;
+  updateBreakdown();
 });
 
-overlay.addEventListener("click", () => {
-  bookingWindow.classList.remove("active");
-  overlay.classList.remove("active");
+document.getElementById("bt-minus-btn-basic").addEventListener("click", () => {
+  let input = document.getElementById("bt-quantity-b");
+  if (Number(input.value) > 0) {
+    input.value = Number(input.value) - 1;
+    updateBreakdown();
+  }
 });
 
+document.getElementById("bt-plus-btn-senior").addEventListener("click", () => {
+  let input = document.getElementById("bt-quantity-s");
+  input.value = Number(input.value) + 1;
+  updateBreakdown();
+});
+
+document.getElementById("bt-minus-btn-senior").addEventListener("click", () => {
+  let input = document.getElementById("bt-quantity-s");
+  if (Number(input.value) > 0) {
+    input.value = Number(input.value) - 1;
+    updateBreakdown();
+  }
+});
+
+document.getElementById("bt-ticket-type").addEventListener("change", updateBreakdown);
+
+//  update Breakdown in the window end
 
 // const closeBtn = bookingWindow.querySelector(".close-btn");
-
-// if (closeBtn) {
-//   closeBtn.addEventListener("click", () => {
-//     bookingWindow.classList.remove("active");
-//     overlay.classList.remove("active");
-//   });
-// }
 
 
 // choose only today date function and output start
