@@ -1195,7 +1195,12 @@ input[type="number"]::-webkit-inner-spin-button {
 .contacts-body-bottom p:not(:last-of-type) {
   margin-bottom: 24px;
 }
-.map-right {
+#map {
+  width: 100%;
+  max-width: 960px;
+  height: 620px;
+}
+/* .map-right {
   max-height: 620px;
 }
 .map-right img {
@@ -1203,7 +1208,7 @@ input[type="number"]::-webkit-inner-spin-button {
   height: calc(65vw - 212px);
   max-width: 960px;
   max-height: 620px;
-}
+} */
 
 /* footer */
 .footer-container {
@@ -1408,9 +1413,8 @@ input[type="number"]::-webkit-inner-spin-button {
 
   background: #fff;
   z-index: 1001;
-
-
 }
+
 .booking-tickets-container {
   display: flex;
   gap: 40px;
@@ -1481,6 +1485,24 @@ h2.bt-title {
 .booking-tickets-container input::placeholder {
   color: #030303;
 }
+
+input.invalid {
+  border: 2px solid #d60000;
+}
+.validation-message {
+  color: #d60000;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  margin-top: -15px;
+  margin-bottom: -15px;
+  display: none;
+}
+.validation-message.active {
+    display: block;
+}
+
 #bt-date,
 #bt-time {
   width: 190px;

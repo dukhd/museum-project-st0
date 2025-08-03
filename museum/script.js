@@ -224,3 +224,7 @@ ticketTypeInput.addEventListener("input", () => {
 });
 
 // selected type of ticket output end
+
+// validation start
+
+// validation end
