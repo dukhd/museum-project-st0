@@ -85,9 +85,11 @@
             Discover the Louvre
           </a>
         </div>
+        <div class="welcome-gradient"></div>
         <div class="welcome-image-mobile">
-          <img src="assets/img/welcome-slider/1-380.webp" alt="Mona Lisa" class="mona-lisa-420" width="380" height="285" fetchpriority="high">
-          <img src="assets/img/welcome-slider/1-728.webp" alt="Mona Lisa" class="mona-lisa-768" width="728" height="546">
+          <img src="assets/img/welcome-slider/1.webp" alt="Mona Lisa" class="mona-lisa-big img-slide" width="1000" height="750" fetchpriority="high">
+          <!-- <img src="assets/img/welcome-slider/1-380.webp" alt="Mona Lisa" class="mona-lisa-420 img-slide" width="380" height="285" fetchpriority="high">
+          <img src="assets/img/welcome-slider/1-728.webp" alt="Mona Lisa" class="mona-lisa-768 img-slide" width="728" height="546"> -->
         </div>
         <div class="welcome-pagination-container">
           <div class="pagination-text">
@@ -308,28 +310,15 @@
     <div class="dark-bgr">
       <section class="section container gallery-section" id="gallery">
         <h2 class="section-title white">Art Gallery</h2>
-        <div class="gallery-grid">
-          <div class="gallery-column first-column">
-            <img src="assets/img/galery/galery2.webp" alt="gallery-art" loading="lazy">
-            <img src="assets/img/galery/galery9.webp" alt="gallery-art" loading="lazy">
-            <img src="assets/img/galery/galery4.webp" alt="gallery-art" loading="lazy">
-            <img src="assets/img/galery/galery6.webp" alt="gallery-art" loading="lazy">
-          </div>
-          <div class="gallery-column second-column">
-            <img src="assets/img/galery/galery1.webp" alt="gallery-art" loading="lazy">
-            <img src="assets/img/galery/galery8.webp" alt="gallery-art" loading="lazy">
-            <img src="assets/img/galery/galery3.webp" alt="gallery-art" loading="lazy">
-            <img src="assets/img/galery/galery5.webp" alt="gallery-art" loading="lazy">
-          </div>
-          <div class="gallery-column third-column">
-            <img src="assets/img/galery/galery7.webp" alt="gallery-art" loading="lazy">
-            <img src="assets/img/galery/galery10.webp" alt="gallery-art" loading="lazy">
-            <img src="assets/img/galery/galery15.webp" alt="gallery-art" loading="lazy">
-            <img src="assets/img/galery/galery12.webp" alt="gallery-art" loading="lazy">
-          </div>
+
+        <div class="picture-container">
+          <div class="picture-inner-container"></div>
         </div>
+
         <div class="gallery-gradient"></div>
       </section>
+
+      <script src="gallery.js"></script>
       
     </div>
     <!-- gallery section end -->
@@ -419,85 +408,86 @@
         <h2 class="bt-title">Booking tickets</h2>
         <span class="bt-left-text bt-red">Tour to Louvre</span>
         <div class="bt-line"></div>
-        <div class="bt-timeslot">
-          <input type="date" id="bt-date" name="date" required class="icon-date">
-          <select id="bt-time" name="time" required class="icon-time">
-            <option value="" hidden>Time</option>
-            <option value="09:00">09:00</option>
-            <option value="09:30">09:30</option>
-            <option value="10:00">10:00</option>
-            <option value="10:30">10:30</option>
-            <option value="11:00">11:00</option>
-            <option value="11:30">11:30</option>
-            <option value="12:00">12:00</option>
-            <option value="12:30">12:30</option>
-            <option value="13:00">13:00</option>
-            <option value="13:30">13:30</option>
-            <option value="14:00">14:00</option>
-            <option value="14:30">14:30</option>
-            <option value="15:00">15:00</option>
-            <option value="15:30">15:30</option>
-            <option value="16:00">16:00</option>
-            <option value="16:30">16:30</option>
-            <option value="17:00">17:00</option>
-            <option value="17:30">17:30</option>
-            <option value="18:00">18:00</option>
+        <form class="booking-tickets-form" id="booking-tickets-form">
+          <div class="bt-timeslot">
+            <input type="date" id="bt-date" name="date" required class="icon-date">
+            <select id="bt-time" name="time" required class="icon-time">
+              <option value="" hidden>Time</option>
+              <option value="09:00">09:00</option>
+              <option value="09:30">09:30</option>
+              <option value="10:00">10:00</option>
+              <option value="10:30">10:30</option>
+              <option value="11:00">11:00</option>
+              <option value="11:30">11:30</option>
+              <option value="12:00">12:00</option>
+              <option value="12:30">12:30</option>
+              <option value="13:00">13:00</option>
+              <option value="13:30">13:30</option>
+              <option value="14:00">14:00</option>
+              <option value="14:30">14:30</option>
+              <option value="15:00">15:00</option>
+              <option value="15:30">15:30</option>
+              <option value="16:00">16:00</option>
+              <option value="16:30">16:30</option>
+              <option value="17:00">17:00</option>
+              <option value="17:30">17:30</option>
+              <option value="18:00">18:00</option>
+            </select>
+          </div>
+          <input type="text" id="name" name="name" 
+            required
+            placeholder="Name"
+            pattern="^[a-zA-Zа-яА-Я ]{3,15}$"
+            title="Use 3 to 15 letters (Latin or Cyrillic) and spaces only"
+            class="icon-name">
+            <div class="validation-message" id="name-error"></div>
+          <input type="text" id="email" name="email"
+            required
+            placeholder="E-mail"
+            class="icon-email"
+            pattern="^[-_a-zA-Z0-9]{3,15}@[a-zA-Z]{4,}\.[a-zA-Z]{2,}$"
+            title="Format: username@example.com">
+            <div class="validation-message" id="email-error"></div>
+          <input type="text" id="tel" name="telephone"
+            required
+            placeholder="Phone"
+            pattern="^(\d{2,3}([\- ]?)){3,4}\d{2,3}$"
+            class="icon-tel"
+            title="Up to 10 digits. Allowed separators: space or dash. Groups of 2–3 digits.">
+            <div class="validation-message" id="tel-error"></div>
+          <select name="ticket type" id="bt-ticket-type" required class="icon-tickets">
+            <option value="" hidden>Ticket Type</option>
+            <option value="1">Permanent exhibition</option>
+            <option value="2">Temporary exhibition</option>
+            <option value="3">Combined admission</option>
           </select>
-        </div>
-        <input type="text" id="name" name="name" 
-          required
-          placeholder="Name"
-          pattern="^[a-zA-Zа-яА-Я ]{3,15}$"
-          title="Use 3 to 15 letters (Latin or Cyrillic) and spaces only"
-          class="icon-name">
-          <div class="validation-message" id="name-error"></div>
-        <input type="text" id="email" name="email"
-          required
-          placeholder="E-mail"
-          class="icon-email"
-          pattern="^[-_a-zA-Z0-9]{3,15}@[a-zA-Z]{4,}\.[a-zA-Z]{2,}$"
-          title="Format: username@example.com">
-          <div class="validation-message" id="email-error"></div>
-        <input type="text" id="tel" name="telephone"
-          required
-          placeholder="Phone"
-          pattern="^(\d{2,3}([\- ]?)){3,4}\d{2,3}$"
-          class="icon-tel"
-          title="Up to 10 digits. Allowed separators: space or dash. Groups of 2–3 digits.">
-          <div class="validation-message" id="tel-error"></div>
-        <select name="ticket type" id="bt-ticket-type" required class="icon-tickets">
-          <option value="" hidden>Ticket Type</option>
-          <option value="1">Permanent exhibition</option>
-          <option value="2">Temporary exhibition</option>
-          <option value="3">Combined admission</option>
-        </select>
-        <form class="bt-tickets-amount">
-          <fieldset class="bt-tickets-amount-fieldset">
+          <div class="bt-tickets-amount">
+            <fieldset class="bt-tickets-amount-fieldset">
 
-            <legend class="bt-tickets-amount-title">Entry ticket</legend>
-            <div class="bt-tickets-amount-line"></div>
+              <legend class="bt-tickets-amount-title">Entry ticket</legend>
+              <div class="bt-tickets-amount-line"></div>
 
-            <div class="bt-element-wrapper">
-              <label for="bt-quantity-b">Basic 18+</label>
-                <div class="bt-quantity-wrapper">
-                  <button type="button" class="bt-decrease" aria-label="minus" id="bt-minus-btn-basic">−</button>
-                  <input type="number" id="bt-quantity-b" name="quantity" min="0" max="150" step="1" value="0" required>
-                  <button type="button" class="bt-increase" aria-label="plus" id="bt-plus-btn-basic">+</button>
-                </div>
-            </div>
+              <div class="bt-element-wrapper">
+                <label for="bt-quantity-b">Basic 18+</label>
+                  <div class="bt-quantity-wrapper">
+                    <button type="button" class="bt-decrease" aria-label="minus" id="bt-minus-btn-basic">−</button>
+                    <input type="number" id="bt-quantity-b" name="quantity" min="0" max="150" step="1" value="0" required>
+                    <button type="button" class="bt-increase" aria-label="plus" id="bt-plus-btn-basic">+</button>
+                  </div>
+              </div>
 
-            <div class="bt-element-wrapper">
-              <label for="bt-quantity-s">Senior 65+</label>
-                <div class="bt-quantity-wrapper">
-                  <button type="button" class="bt-decrease" aria-label="minus" id="bt-minus-btn-senior">−</button>
-                  <input type="number" id="bt-quantity-s" name="quantity" min="0" max="150" step="1" value="0" required>
-                  <button type="button" class="bt-increase" aria-label="plus" id="bt-plus-btn-senior">+</button>
-                </div>
-                
-            </div>
-          </fieldset>
+              <div class="bt-element-wrapper">
+                <label for="bt-quantity-s">Senior 65+</label>
+                  <div class="bt-quantity-wrapper">
+                    <button type="button" class="bt-decrease" aria-label="minus" id="bt-minus-btn-senior">−</button>
+                    <input type="number" id="bt-quantity-s" name="quantity" min="0" max="150" step="1" value="0" required>
+                    <button type="button" class="bt-increase" aria-label="plus" id="bt-plus-btn-senior">+</button>
+                  </div>
+                  
+              </div>
+            </fieldset>
+          </div>
         </form>
-
       </div>
       <div class="bt-right">
         <div class="bt-overview">
@@ -515,9 +505,9 @@
         <div class="bt-price-breakdown">
           <div class="bt-basic-total">
             <div class="bt-basic-total-left">
-              <output class="bt-count" id="bt-count-basic">2</output>
+              <output class="bt-unit" id="bt-unit-basic">2</output>
               <span>Basic</span>
-              <output class="bt-count-price" id="bt-count-price-b">(20 €)</output>
+              <output class="bt-unit-price" id="bt-unit-price-b">(20 €)</output>
             </div>
             <div class="bt-basic-total-right">
               <output class="bt-count-price" id="bt-counted-price-b">40 €</output>
@@ -526,9 +516,9 @@
 
           <div class="bt-senior-total">
             <div class="bt-senior-total-left">
-              <output class="bt-count" id="bt-count-senior">2</output>
+              <output class="bt-unit" id="bt-unit-senior">2</output>
               <span>Senior</span>
-              <output class="bt-count-price" id="bt-count-price-s">(10 €)</output>
+              <output class="bt-unit-price" id="bt-unit-price-s">(10 €)</output>
             </div>
             <div class="bt-senior-total-right">
               <output class="bt-count-price" id="bt-counted-price-s">20 €</output>
