@@ -1,9 +1,11 @@
+document.addEventListener('DOMContentLoaded', () => {
+
 const prevImg = document.getElementById('arrow-prev');
 const nextImg = document.getElementById('arrow-next');
 const slidesImg = document.querySelectorAll('.img_slide');
 const squares = document.querySelectorAll('.pag_squares_item');
 const pagNumber = document.querySelectorAll('.pag_text');
-const mouseMoveSlider = document.querySelector('.welcome-image');
+const welcomeSection = document.querySelector('.welcome-image');
 
 let index = 0;
 
@@ -65,3 +67,85 @@ squares.forEach((item, indexSquare) => {
 
 nextImg.addEventListener('click', nextWelcomeSlide);
 prevImg.addEventListener('click', prevWelcomeSlide);
+
+
+let startX = 0;
+let endX = 0;
+
+welcomeSection.addEventListener('touchstart', e => {
+  startX = e.touches[0].clientX;
+});
+
+welcomeSection.addEventListener('touchend', e => {
+  endX = e.changedTouches[0].clientX;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  let diffX = endX - startX;
+  if (Math.abs(diffX) > 20) {
+    if (diffX > 0) {
+      prevWelcomeSlide();
+    } else {
+      nextWelcomeSlide();
+    }
+  }
+}
+
+let isDragging = false;
+let dragStartX = 0;
+let dragEndX = 0;
+
+welcomeSection.addEventListener('mousedown', e => {
+  if (e.target.closest('.img_slide')) {
+    e.preventDefault();
+    document.body.style.userSelect = 'none';
+    isDragging = true;
+    dragStartX = e.clientX;
+  }
+});
+
+welcomeSection.addEventListener('mouseup', e => {
+  if (!isDragging) return;
+  document.body.style.userSelect = '';
+  isDragging = false;
+  dragEndX = e.clientX;
+  handleDrag();
+});
+
+welcomeSection.addEventListener('mouseleave', e => {
+  if (isDragging) {
+    isDragging = false;
+    document.body.style.userSelect = '';
+  }
+});
+
+welcomeSection.addEventListener('touchstart', e => {
+  if (e.target.closest('.img_slide')) {
+    document.body.style.userSelect = 'none';
+    isDragging = true;
+    dragStartX = e.touches[0].clientX;
+  }
+});
+
+welcomeSection.addEventListener('touchend', e => {
+  if (!isDragging) return;
+  document.body.style.userSelect = '';
+  isDragging = false;
+  dragEndX = e.changedTouches[0].clientX;
+  handleDrag();
+});
+
+function handleDrag() {
+  const diffX = dragEndX - dragStartX;
+
+  if (Math.abs(diffX) > 50) {
+    if (diffX > 0) {
+      prevWelcomeSlide();
+    } else {
+      nextWelcomeSlide();
+    }
+  }
+}
+
+});

@@ -166,6 +166,18 @@ body {
   width: 100%;
     max-width: 1440px;
 } */
+ .welcome-image img {
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+.welcome-content {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: auto;
+}
 .welcome-section {
   position: relative;
   margin: 0 auto;
@@ -181,6 +193,7 @@ body {
   z-index: 2;
   left: 30%;
   top: 0;
+  pointer-events: none;
 }
 .img_slide {
   display: none;
@@ -191,7 +204,7 @@ body {
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  pointer-events: none;
+  pointer-events: auto;
 }
 .img_slide.active {
   position: absolute;
@@ -257,6 +270,7 @@ body {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+  pointer-events: none;
 }
 h2 {
   text-transform: uppercase;
@@ -273,6 +287,7 @@ h2 {
   padding-top: clamp(50px, 11.16vw, 150px);
   padding-bottom: 25px;
   z-index: 3;
+  pointer-events: none;
 }
 
 .welcome-content p {
@@ -287,6 +302,7 @@ h2 {
   padding-bottom: 74px;
   z-index: 3;
   top: 355px;
+  pointer-events: none;
 }
 .welcome-section a {
   font-family: Roboto;
@@ -299,6 +315,7 @@ h2 {
   width: 360px;
   height: 75px;
   text-align: center;
+
 }
 .welcome-discover-button {
   position: absolute;
