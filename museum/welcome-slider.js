@@ -1,8 +1,9 @@
 const prevImg = document.getElementById('arrow-prev');
 const nextImg = document.getElementById('arrow-next');
-const slidesImg = document.querySelectorAll('.img_slide')
-const squares = document.querySelectorAll('.pag_squares_item')
-const pagNumber = document.querySelectorAll('.pag_text')
+const slidesImg = document.querySelectorAll('.img_slide');
+const squares = document.querySelectorAll('.pag_squares_item');
+const pagNumber = document.querySelectorAll('.pag_text');
+const mouseMoveSlider = document.querySelector('.welcome-image');
 
 let index = 0;
 
@@ -29,33 +30,38 @@ const activeWelsomeNumber = n => {
   pagNumber[n].classList.add('active');
 }
 
+const currentSlide = ind => {
+  activeWelsomeSlide(ind);
+  activeWelsomeSquares(ind);
+  activeWelsomeNumber(ind);
+}
+
 const nextWelcomeSlide = () => {
   if(index === slidesImg.length - 1) {
     index = 0;
-    activeWelsomeSlide(index);
-    activeWelsomeSquares(index);
-    activeWelsomeNumber(index);
+    currentSlide(index);
   } else {
     index++;
-    activeWelsomeSlide(index);
-    activeWelsomeSquares(index);
-    activeWelsomeNumber(index);
+    currentSlide(index);
   }
 }
 
 const prevWelcomeSlide = () => {
   if(index === 0) {
     index = slidesImg.length - 1;
-    activeWelsomeSlide(index);
-    activeWelsomeSquares(index);
-    activeWelsomeNumber(index);
+    currentSlide(index);
   } else {
     index--;
-    activeWelsomeSlide(index);
-    activeWelsomeSquares(index);
-    activeWelsomeNumber(index);
+    currentSlide(index);
   }
 }
+
+squares.forEach((item, indexSquare) => {
+  item.addEventListener('click', () => {
+    index = indexSquare;
+    currentSlide(index);
+  })
+})
 
 nextImg.addEventListener('click', nextWelcomeSlide);
 prevImg.addEventListener('click', prevWelcomeSlide);
