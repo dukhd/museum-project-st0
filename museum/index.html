@@ -4,13 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>museum</title>
-  <link rel="preload" as="image" href="assets/img/welcome-slider/1-380.webp">
+  <!-- <link rel="preload" as="image" href="assets/img/welcome-slider/1-380.webp">
   <link rel="preload" href="assets/fonts/Roboto-Light.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/Forum-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Forum-Regular.woff2" as="font" type="font/woff2" crossorigin> -->
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="assets/favicon.ico">
   <link href="https://api.mapbox.com/mapbox-gl-js/v3.14.0/mapbox-gl.css" rel="stylesheet">
-  <script src="https://api.mapbox.com/mapbox-gl-js/v3.14.0/mapbox-gl.js"></script>  
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.14.0/mapbox-gl.js"></script>
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
   <body>
   <header class="dark-bgr">
@@ -219,7 +223,94 @@
           <h2 class="section-title gold">Video journey</h2>
           <p>Enter and visit one of the most famous museums in the world and enjoy masterpieces such as Mona Lisa or Hammurabi's Code</p>
         </div>
-        <div class="video-center">
+        <div class="video-slider">
+
+          <div class="video-main">
+            <iframe class="video-center active"
+              width="1440" height="735" 
+              src="https://www.youtube.com/embed/zp1BXPX8jcU?si=eWuAWh4nuiMQ3IUq" 
+              title="YouTube video player"
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerpolicy="strict-origin-when-cross-origin" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-carousel swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <iframe class="video active"
+                  width="452" height="254"
+                  src="https://www.youtube.com/embed/zp1BXPX8jcU?si=eWuAWh4nuiMQ3IUq" 
+                  title="YouTube video player"
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  referrerpolicy="strict-origin-when-cross-origin" 
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <div class="swiper-slide">
+                <iframe class="video"
+                  width="452" height="254" 
+                  src="https://www.youtube.com/embed/Vi5D6FKhRmo?si=QpZJ91XksbozwJSP" 
+                  title="YouTube video player" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  referrerpolicy="strict-origin-when-cross-origin" 
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <div class="swiper-slide">
+                <iframe class="video"
+                  width="452" height="254" 
+                  src="https://www.youtube.com/embed/NOhDysLnTvY?si=xJuFjdRQj2YZCJ_n" 
+                  title="YouTube video player" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  referrerpolicy="strict-origin-when-cross-origin" 
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <div class="swiper-slide">
+                <iframe class="video"
+                  loading="lazy"
+                  width="452" height="254" 
+                  src="https://www.youtube.com/embed/aWmJ5DgyWPI?si=LcqAnognNlRXbc1S" 
+                  title="YouTube video player" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  referrerpolicy="strict-origin-when-cross-origin" 
+                  allowfullscreen>
+                </iframe>
+              </div>
+              <div class="swiper-slide">
+                <iframe class="video"
+                  loading="lazy"
+                  width="452" height="254" 
+                  src="https://www.youtube.com/embed/2OR0OCr6uRE?si=o2Hhr5g0KPvNSi1Y" 
+                  title="YouTube video player" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  referrerpolicy="strict-origin-when-cross-origin" 
+                  allowfullscreen>
+                </iframe>
+              </div>
+              
+            </div>
+            <div class="video-dots">
+              <button class="double-arrow rotate prev-video"></button>
+              <div class="circle_nav active"></div>
+              <div class="circle_nav"></div>
+              <div class="circle_nav"></div>
+              <div class="circle_nav"></div>
+              <div class="circle_nav"></div>
+              <button class="double-arrow next-video"></button>
+            </div>
+          </div>
+            
+        </div>
+        
+        <!-- <div class="video-center">
           <img src="assets/video/poster0-0.webp" 
           srcset="
             assets/video/poster0-0-380.webp 380w,
@@ -298,18 +389,11 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="video-dots">
-          <div class="double-arrow rotate"></div>
-          <div class="circle-nav first-circle-nav"></div>
-          <div class="circle-nav"></div>
-          <div class="circle-nav"></div>
-          <div class="circle-nav"></div>
-          <div class="circle-nav"></div>
-          <div class="double-arrow"></div>
-        </div>
+        </div> -->
+        
         
       </section>
+      <script src="video-slider.js"></script>
     </div>
     <!-- video section end -->
     <!-- gallery section start -->
