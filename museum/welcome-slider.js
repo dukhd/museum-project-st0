@@ -17,7 +17,6 @@ const activeWelsomeSlide = n => {
 }
 
 const activeWelsomeSquares = n => {
-  console.log(n);
   for(pag_squares_item of squares) {
     pag_squares_item.classList.remove('active');
   }
@@ -25,7 +24,6 @@ const activeWelsomeSquares = n => {
 }
 
 const activeWelsomeNumber = n => {
-  console.log(n);
   for(pag_text of pagNumber) {
     pag_text.classList.remove('active');
   }
