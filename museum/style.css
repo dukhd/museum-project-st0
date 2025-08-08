@@ -159,6 +159,8 @@ body {
   color: var(--font-active);
 }
 /* header styles end */
+
+
 /* .dark-section {
   background: #030303;
 } */
@@ -166,14 +168,13 @@ body {
   width: 100%;
     max-width: 1440px;
 } */
- .welcome-image img {
+
+.welcome-image img {
   user-select: none;
   -webkit-user-drag: none;
   pointer-events: none;
 }
-.welcome-image {
 
-}
 .welcome-content {
   user-select: none;
   -webkit-user-select: none;
@@ -186,7 +187,7 @@ body {
   margin: 0 auto;
   padding: 0;
   height: clamp(585px, 42.2vw, 810px);
-
+  overflow: hidden;
 }
 .welcome-gradient {
   position: absolute;
@@ -198,6 +199,13 @@ body {
   top: 0;
   pointer-events: none;
 }
+.welcome-image-wrapper {
+  overflow: hidden;
+}
+.welcome-image {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
 .img_slide {
   display: none;
   position: absolute;
@@ -208,6 +216,7 @@ body {
   object-fit: cover;
   opacity: 0;
   pointer-events: auto;
+  flex-shrink: 0;
 }
 .img_slide.active {
   position: absolute;
@@ -537,54 +546,53 @@ h3 {
 }
 
 /* slider */
-.explore-right {
-  position: relative;
-  width: 100%;
-  max-width: 720px;
-  min-height: 700px;
-  margin-top: 15px;
-  /* aspect-ratio: 720 / 700; */
-}
-
-.explore-slider img {
+.explore_slider {
+  width: 50%;
+  height: 700px;
   display: block;
+  margin-top: 15px;
+}
+.slider-wrapper {
   width: 100%;
-  max-height: 700px; 
+  height: 700px;
+  position: relative;
+  overflow: hidden;
 }
 
-.before {
+.slider-wrapper,
+.slider-wrapper * {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.slider_before {
   position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  width: 100%;
   height: 100%;
-  object-fit: cover;
-}
-
-.after {
-  position: absolute;
+  width: 58.5%;
   top: 0;
   left: 0;
-  /* clip: rect(0, 720px, 700px, 440px); */
-  clip-path: inset(0 0 0 61.5%);
+  overflow: hidden;
   z-index: 2;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
-.slider-handle {
+
+.slider_after {
+  display: block;
+}
+
+.slider_handle {
   position: absolute;
   background-image: url(assets/svg/explore-slider.svg);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  width: 39px;
+  width: 6%;
   height: 700px;
-  left: 58.5%;
+  left: 55.5%;
   z-index: 3;
+  top: 0;
+  cursor: e-resize;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
 }
-
 
 
 /* video section */
@@ -626,10 +634,6 @@ h3 {
 .video {
   min-width: 452px;
   height: 254px;
-}
-
-.video.active {
-  
 }
 
 /* video dots */

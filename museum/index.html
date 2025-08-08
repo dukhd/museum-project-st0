@@ -90,13 +90,16 @@
           </a>
         </div>
         <div class="welcome-gradient"></div>
-        <div class="welcome-image">
-          <img src="assets/img/welcome-slider/1.webp" alt="Mona Lisa" class="img_slide active" width="1000" height="750" fetchpriority="high">
-          <img src="assets/img/welcome-slider/2.webp" alt="Welcome picture" class="img_slide" width="1000" height="750" fetchpriority="high">
-          <img src="assets/img/welcome-slider/3.webp" alt="Welcome picture" class="img_slide" width="1000" height="750" fetchpriority="high">
-          <img src="assets/img/welcome-slider/4.webp" alt="Welcome picture" class="img_slide" width="1000" height="750" fetchpriority="high">
-          <img src="assets/img/welcome-slider/5.webp" alt="Welcome picture" class="img_slide" width="1000" height="750" fetchpriority="high">
+        <div class="welcome-image-wrapper">
+          <div class="welcome-image">
+            <img src="assets/img/welcome-slider/1.webp" alt="Mona Lisa" class="img_slide active" width="1000" height="750" fetchpriority="high">
+            <img src="assets/img/welcome-slider/2.webp" alt="Welcome picture" class="img_slide" width="1000" height="750" fetchpriority="high">
+            <img src="assets/img/welcome-slider/3.webp" alt="Welcome picture" class="img_slide" width="1000" height="750" fetchpriority="high">
+            <img src="assets/img/welcome-slider/4.webp" alt="Welcome picture" class="img_slide" width="1000" height="750" fetchpriority="high">
+            <img src="assets/img/welcome-slider/5.webp" alt="Welcome picture" class="img_slide" width="1000" height="750" fetchpriority="high">
+          </div>
         </div>
+        
         <div class="welcome-pagination-container">
           <div class="pagination-text">
             <p class="pag_text active">01</p>
@@ -208,10 +211,17 @@
           <p>It was cleaned in 1984 to remove a <span class="gold-text">"yellow veil"</span> of dust that had gathered since the previous restoration in the 19th century.</p>
           <p>The cleaning provoked furious protests, not because the picture had been damaged in any way, but because it looked different.</p> 
         </div>
-        <div class="explore-right">
-          <img src="assets/img/explore-slider/before.webp" alt="Explore before" class="before">
-          <img src="assets/img/explore-slider/after.webp" alt="Explore after" class="after">
-          <div class="slider-handle"></div>
+
+        <div class="explore-right explore_slider">
+          <div class="slider-wrapper">
+            <div class="slider_before">
+              <img src="assets/img/explore-slider/before.webp" alt="Explore before">
+            </div>
+            <div class="slider_after">
+              <img src="assets/img/explore-slider/after.webp" alt="Explore after">
+            </div>
+            <div class="slider_handle"></div>
+          </div>
         </div>
       </section>
     </div>
@@ -737,5 +747,6 @@
     </div>
   </footer>
   <script src="script.js" defer></script>
+  <script src="explore-slider.js"></script>
 </body>
 </html>
