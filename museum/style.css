@@ -56,6 +56,9 @@ body {
   /* overflow-x: hidden; */
   margin: 0;
 }
+.no-scroll {
+  overflow: hidden;
+}
 :root {
   --bg-dark: #030303;
   --dark-red: #710707;
@@ -1086,6 +1089,7 @@ input[type="number"] {
   flex-direction: column;
   align-items: flex-end; 
   gap: 50px;
+  width: 196px;
 
 }
 .tickets-form-right-container .tickets-form-right {
@@ -1407,6 +1411,40 @@ input[type="number"] {
 }
 
 /* BOOKING TICKET WINDOW START */
+.close_button {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  top: 30px;
+  right: 30px;
+}
+
+.close_button::before,
+.close_button::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 1px;
+  background: #030303;
+  transform-origin: center;
+  transition: transform 0.6s ease;
+}
+
+.close_button:hover::before,
+.close_button:hover::after {
+  background: var(--dark-red);
+  height: 3px;
+}
+.close_button::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.close_button::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
 
 .overlay {
   position: fixed;
@@ -1427,29 +1465,29 @@ input[type="number"] {
 /* window mooving */
 
 .booking-tickets-window-wrapper {
+  position: relative;
   position: fixed;
-  display: none;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   width: 1440px;
   height: 845px;
-
   background: #fff;
   z-index: 1001;
+  transform: translate(-150%, -50%);
+  opacity: 0;
+  transition: transform 0.8s ease, opacity 0.4s ease;
 }
-
+.booking-tickets-window-wrapper.active {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
 .booking-tickets-container {
   display: flex;
   gap: 40px;
   padding: 91px 40px;
   justify-content: center;
-
 }
 
-.booking-tickets-window-wrapper.active {
-  display: block;
-}
 .bt-left {
   display: flex;
   flex-direction: column;
@@ -1777,7 +1815,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .bt-bank-card-item1 {
   width: 360px;
   height: 211px;
-  background-color: #BCBCBC;
+  background-image: url(assets/img/tickets-sections/bank-card-back.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   align-self: flex-start;
   z-index: 1;
 }
@@ -1787,7 +1828,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin-top: -181px;
   width: 360px;
   height: 211px;
-  background-color: #A4A4A3;
+  background-image: url(assets/img/tickets-sections/bank-card-cvc.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   border-radius: 0.5px;
 }
 
@@ -1809,8 +1853,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   padding-inline: 0;
   border-width: 0;
   align-self: flex-end;
+  transition: 0.6s;
 }
 
+.bt-book-button:hover {
+  background-color: var(--font-gold);
+  color: var(--bg-dark);
+}
 /* lines start*/
 .bt-line {
   width: 400px;

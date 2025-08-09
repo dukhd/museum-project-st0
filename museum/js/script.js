@@ -32,6 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+function formatPrice(num) {
+  return Number.isInteger(num) ? num.toString() : num.toFixed(2);
+}
+
 // Buy Tockets section
 const finalPrice = document.getElementById('final-price')
 
@@ -87,14 +92,14 @@ function updateAmount() { //updateAmount start
   const priceAmountBasic = ticketCountBasic * amountBasic
   const priceAmountSenior = ticketCountSenior * amountSenior
   const amount = priceAmountBasic + priceAmountSenior
-  finalPrice.querySelector('.span-price').textContent = amount.toFixed(2)
+  finalPrice.querySelector('.span-price').textContent = formatPrice(amount)
   
 
   // keep info
   localStorage.setItem('ticketCountBasic', ticketCountBasic);
   localStorage.setItem('ticketCountSenior', ticketCountSenior);
   localStorage.setItem('selectedTicketType', selectedTicketType);
-  localStorage.setItem('finalPrice', amount.toFixed(2));
+  localStorage.setItem('finalPrice', formatPrice(amount));
 } // updateAmount finish
 
 // keep info start
@@ -152,11 +157,13 @@ loadSavedState();
 const bookingWindow = document.getElementById("booking-tickets-window");
 const overlay = document.getElementById("overlay");
 const selectTicket = document.getElementById("bt-ticket-type");
+const closeBtn = document.querySelector(".close_button")
 
 submitBtn.addEventListener("click", e => {
   e.preventDefault();
   bookingWindow.classList.add("active");
   overlay.classList.add("active");
+  document.body.classList.add("no-scroll");
 
   const chosen = document.querySelector('input[name="radio"]:checked').value;
   selectTicket.value = chosen;
@@ -189,13 +196,26 @@ submitBtn.addEventListener("click", e => {
   document.getElementById("bt-quantity-s").value = ticketCountSenior;
 
   document.getElementById("bt-unit-price-b").textContent = `(${amountBasic} €)`;
-  document.getElementById("bt-unit-price-s").textContent = `(${amountSenior} €)`;
+  document.getElementById("bt-unit-price-s").textContent = `(${formatPrice(amountSenior)} €)`;
 
   document.getElementById("bt-counted-price-b").textContent = `${priceAmountBasic} €`;
-  document.getElementById("bt-counted-price-s").textContent = `${priceAmountSenior} €`;
+  document.getElementById("bt-counted-price-s").textContent = `${formatPrice(priceAmountSenior)} €`;
 
-  document.getElementById("bt-total-output").textContent = `${totalAmount} €`;
+  document.getElementById("bt-total-output").textContent = `${formatPrice(totalAmount)} €`;
 });
+
+closeBtn.addEventListener("click", () => {
+  bookingWindow.classList.remove("active");
+  overlay.classList.remove("active");
+  document.body.classList.remove("no-scroll");
+});
+
+overlay.addEventListener("click", () => {
+  bookingWindow.classList.remove("active");
+  overlay.classList.remove("active");
+  document.body.classList.remove("no-scroll");
+});
+
 //  update Breakdown in the window start
 function updateBreakdown() {
 
@@ -226,12 +246,12 @@ function updateBreakdown() {
   document.getElementById("bt-unit-senior").textContent = ticketCountSenior;
 
   document.getElementById("bt-unit-price-b").textContent = `(${amountBasic} €)`;
-  document.getElementById("bt-unit-price-s").textContent = `(${amountSenior} €)`;
+  document.getElementById("bt-unit-price-s").textContent = `(${formatPrice(amountSenior)} €)`;
 
   document.getElementById("bt-counted-price-b").textContent = `${priceAmountBasic} €`;
-  document.getElementById("bt-counted-price-s").textContent = `${priceAmountSenior} €`;
+  document.getElementById("bt-counted-price-s").textContent = `${formatPrice(priceAmountSenior)} €`;
 
-  document.getElementById("bt-total-output").textContent = `${totalAmount} €`;
+  document.getElementById("bt-total-output").textContent = `${formatPrice(totalAmount)} €`;
 }
 
 document.getElementById("bt-plus-btn-basic").addEventListener("click", () => {
@@ -266,7 +286,7 @@ document.getElementById("bt-ticket-type").addEventListener("change", updateBreak
 
 //  update Breakdown in the window end
 
-// const closeBtn = bookingWindow.querySelector(".close-btn");
+
 
 
 // choose only today date function and output start
