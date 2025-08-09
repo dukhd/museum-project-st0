@@ -350,3 +350,52 @@ ticketTypeInput.addEventListener("input", () => {
 });
 
 // selected type of ticket output end
+
+
+// validation start
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const telInput = document.getElementById('tel');
+
+const nameError = document.getElementById('name-error');
+const emailError = document.getElementById('email-error');
+const telError = document.getElementById('tel-error');
+
+
+function validateField(inputElement, errorElement) {
+    if (!inputElement || !errorElement) {
+        console.error('', inputElement, errorElement);
+        return;
+    }
+
+    if (inputElement.validity.valid) {
+        inputElement.classList.remove('invalid');
+        errorElement.textContent = '';
+        errorElement.classList.remove('active');
+    } else {
+        inputElement.classList.add('invalid');
+        errorElement.textContent = inputElement.title;
+        errorElement.classList.add('active');
+    }
+}
+
+nameInput.addEventListener('input', () => {
+  validateField(nameInput, nameError);
+});
+nameInput.addEventListener('blur', () => {
+  validateField(nameInput, nameError);
+});
+emailInput.addEventListener('input', () => {
+  validateField(emailInput, emailError);
+});
+emailInput.addEventListener('blur', () => {
+  validateField(emailInput, emailError);
+});
+telInput.addEventListener('blur', () => {
+  validateField(telInput, telError);
+});
+telInput.addEventListener('input', () => {
+  validateField(telInput, telError);
+});
+
+// validation end
