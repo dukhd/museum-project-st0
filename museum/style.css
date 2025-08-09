@@ -211,6 +211,7 @@ body {
   opacity: 0;
   pointer-events: auto;
   flex-shrink: 0;
+  transition: 500ms;
 }
 .img_slide.active {
   position: absolute;
@@ -224,6 +225,7 @@ body {
   max-height: 750px;
   opacity: 1;
   pointer-events: auto;
+  transition: 500ms;
 }
 
 .title-hiden {
@@ -574,8 +576,24 @@ h3 {
 
 .video-main {
   position: relative;
+  width: 1440px; 
+  height: 735px; 
+  overflow: hidden;
 }
+.video-center {
+  position: absolute;
+  z-index: 1;
+  object-fit: cover;
+  object-position: center;
+  /* min-height: 650px; */
+  height: 100%;
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  min-width: 1440px;
+  width: 100%;
 
+}
 /* VIDEO BAR START -------------------- */
 .play-big-button {
   position: absolute;
@@ -599,15 +617,33 @@ h3 {
   opacity: 70%;
 }
 
-.play-line-after-768 {
-  display: none;
+.speed-display {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px 20px;
+  border-radius: 10px;
+  z-index: 9999;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  user-select: none;
+  opacity: 1;
+}
+.speed-display.hidden {
+  opacity: 0;
 }
 .video-bar {
-  z-index: 1;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
   width: 100%;
-  max-width: 1440px;
   height: 85px;
-  background-color: var(--bg-dark);
+  background-color: rgba(3, 3, 3, 0.5);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -623,7 +659,7 @@ h3 {
   background-position: center;
   cursor: pointer;
   transition: 0.5s;
-  z-index: 2;
+  z-index: 3;
 }
 .play-button:hover {
   width: 23px;
@@ -634,7 +670,7 @@ h3 {
   background-position: center;
   transition: 0.5s;
 }
-.play-button:active {
+.play-button.active {
   width: 23px;
   height: 31px;
   background-image: url(assets/svg/additional/pause.svg);
@@ -649,16 +685,17 @@ h3 {
   width: 100%;
   max-width: 929px;
   height: 15px;
+  --progress-percent: 0%;
 }
 .play-line::before {
   content: "";
   position: absolute;
-  width: 54%;
+  width: var(--progress-percent);
   height: 8px;
   background: var(--dark-red);
   top: 3.5px;
   left: 0;
-  z-index: 1;
+  z-index: 3;
 }
 .play-line-dot {
   position: absolute;
@@ -666,18 +703,18 @@ h3 {
   height: 15px;
   border-radius: 50px;
   background: var(--font-white);
-  left: 53%;
+  left: var(--progress-percent);
   z-index: 5;
 }
 .play-line::after {
   content: "";
   position: absolute;
-  width: 46%;
+  width: calc(100% - var(--progress-percent));
   height: 8px;
   background: #C4C4C4;
   top: 3.5px;
   right: 0;
-  z-index: 1;
+  z-index: 3;
 }
 
 .audio-button {
@@ -689,7 +726,7 @@ h3 {
   background-position: center;
   cursor: pointer;
   transition: 0.5s;
-  z-index: 2;
+  z-index: 3;
 }
 .audio-button:hover {
   width: 38px;
@@ -700,7 +737,7 @@ h3 {
   background-position: center;
   transition: 0.5s;
 }
-.audio-button:active {
+.audio-button.muted {
   width: 38px;
   height: 31px;
   background-image: url(assets/svg/additional/mute.svg);
@@ -714,16 +751,18 @@ h3 {
   width: 100%;
   max-width: 155px;
   height: 15px;
+  --audio-progress-percent: 0%;
 }
 .audio-line::before {
   content: "";
   position: absolute;
-  width: 40%;
+  width: var(--audio-progress-percent);
   height: 8px;
   background: var(--dark-red);
   top: 3.5px;
   left: 0;
-  z-index: 1;
+  z-index: 3;
+  /* transition: width 0.3s ease; */
 }
 .audio-line-dot {
   position: absolute;
@@ -731,18 +770,20 @@ h3 {
   height: 15px;
   border-radius: 50px;
   background: var(--font-white);
-  left: 39%;
+  left: var(--audio-progress-percent);
   z-index: 5;
+  /* transition: left 0.3s ease; */
 }
 .audio-line::after {
   content: "";
   position: absolute;
-  width: 60%;
+  width: calc(100% - var(--audio-progress-percent));
   height: 8px;
   background: #C4C4C4;
   top: 3.5px;
   right: 0;
-  z-index: 1;
+  z-index: 3;
+  /* transition: width 0.3s ease; */
 }
 
 .fullscreen-button {
@@ -752,7 +793,7 @@ h3 {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  z-index: 2;
+  z-index: 3;
   cursor: pointer;
   transition: 0.5s;
 }
@@ -765,7 +806,7 @@ h3 {
   background-position: center;
   transition: 0.5s;
 }
-.fullscreen-button:active {
+.fullscreen-button.full_screen {
   width: 35px;
   height: 35px;
   background-image: url(assets/svg/additional/fullscreen_exit.svg);
