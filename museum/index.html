@@ -352,24 +352,7 @@
             
         </div>
         
-        <!-- <div class="video-center">
-          <img src="assets/video/poster0-0.webp" 
-          srcset="
-            assets/video/poster0-0-380.webp 380w,
-            assets/video/poster0-0-728.webp 728w,
-            assets/video/poster0-0.webp 1440w
-          "
-          sizes="
-            (max-width: 420px) 380px,
-            (max-width: 768px) 728px,
-            1440px
-          "
-          width="100%"
-          height="auto"
-          
-          alt="Video main"
-          >
-          <div class="play-big-button"></div>
+        <!-- video bar after 768
           <div class="play-line-after-768">
             <div class="play-line-dot-after-768"></div>
           </div>
@@ -383,59 +366,9 @@
               <div class="audio-line-dot"></div>
             </div>
             <div class="fullscreen-button"></div>
-          </div>
-        </div>
-        <div class="video-bottom">
-          <div class="video-bottom-item">
-            <img src="assets/video/poster1-1.webp" alt="Video small one">
-            <div class="youtube-play-button"></div>
-            <div class="video-text-container">
-              <div class="video-text-left">
-                <div class="video-logo"></div>
-                <div class="video-text"><p>Exposition - Le Corps et l’Ame. De Dona...</p></div>
-              </div>
-              <div class="video-bar-dots">
-                <div class="video-dots-item"></div>
-                <div class="video-dots-item"></div>
-                <div class="video-dots-item"></div>
-              </div>
-            </div>
-          </div>
-          <div class="video-bottom-item">
-            <img src="assets/video/poster2-2.webp" alt="Video small two">
-            <div class="youtube-play-button"></div>
-            <div class="video-text-container">
-              <div class="video-text-left">
-                <div class="video-logo"></div>
-                <div class="video-text"><p>Au Louvre ! La Venus de Milo</p></div>
-              </div>
-              <div class="video-bar-dots">
-                <div class="video-dots-item"></div>
-                <div class="video-dots-item"></div>
-                <div class="video-dots-item"></div>
-              </div>
-            </div>
-          </div>
-          <div class="video-bottom-item">
-            <img src="assets/video/poster3-3.webp" alt="Video small three">
-            <div class="youtube-play-button"></div>
-            <div class="video-text-container">
-              <div class="video-text-left">
-                <div class="video-logo"></div>
-                <div class="video-text"><p>Promenade dans les collections mesop...</p></div>
-              </div>
-              <div class="video-bar-dots">
-                <div class="video-dots-item"></div>
-                <div class="video-dots-item"></div>
-                <div class="video-dots-item"></div>
-              </div>
-            </div>
-          </div>
-        </div> -->
-        
-        
+          </div> -->
+      
       </section>
-      <script src="video-slider.js"></script>
     </div>
     <!-- video section end -->
     <!-- gallery section start -->
@@ -449,8 +382,6 @@
 
         <div class="gallery-gradient"></div>
       </section>
-
-      <script src="gallery.js"></script>
       
     </div>
     <!-- gallery section end -->
@@ -698,40 +629,6 @@
           </div>
           <!-- <div class="map-right"><img src="assets/img/map.webp" alt="Map" width="960" height="620"></div> -->
           <div id="map"></div>
-          <script>
-            mapboxgl.accessToken = 'pk.eyJ1IjoiZGlyZm9tIiwiYSI6ImNtZHU5bHBwbTBna28ybHF3c2VkdXJydnoifQ.BUgn3JrFvBlVltdfVfX-5Q';
-              const map = new mapboxgl.Map({
-                  container: 'map',
-                  // style: 'mapbox://styles/mapbox/light-v11',
-                  style: 'mapbox://styles/dirfom/cmdubre7d00hn01qs8zb83afp',
-                  center: [2.3364, 48.86091],
-                  zoom: 16
-              });
-              const markers = [
-                [2.3364, 48.86091],
-                [2.3333, 48.8602],
-                [2.3397, 48.8607],
-                [2.3330, 48.8619],
-                [2.3365, 48.8625]
-              ];
-              markers.forEach((coord, index) => {
-                new mapboxgl.Marker({
-                  color: index === 0 ? "#171717" : "#757575"
-                })
-                .setLngLat(coord)
-                .addTo(map);
-              });
-              map.on('load', () => {
-                map.setPaintProperty('water', 'fill-color', '#C6D0D2');
-                map.setPaintProperty('land', 'background-color', '#F8F8F6');
-                map.setPaintProperty('building', 'fill-color', '#EAEAE8');
-                
-              });
-              const nav = new mapboxgl.NavigationControl({
-                visualizePitch: true
-              });
-              map.addControl(nav, 'top-right');
-          </script>
         </div>
       </section>
     </div>
@@ -781,5 +678,8 @@
 
   <script src="script.js" defer></script>
   <script src="explore-slider.js"></script>
+  <script src="video-slider.js"></script>
+  <script src="gallery.js"></script>
+  <script src="map.js"></script>
 </body>
 </html>
