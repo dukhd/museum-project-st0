@@ -1413,21 +1413,21 @@ input[type="number"] {
 /* BOOKING TICKET WINDOW START */
 .close_button {
   position: absolute;
-  width: 25px;
-  height: 25px;
+  width: 27px;
+  height: 27px;
   background: transparent;
   border: 0;
   cursor: pointer;
   padding: 0;
-  top: 30px;
-  right: 30px;
+  top: 29px;
+  right: 29px;
 }
 
 .close_button::before,
 .close_button::after {
   content: "";
   position: absolute;
-  width: 25px;
+  width: 35px;
   height: 1px;
   background: #030303;
   transform-origin: center;
@@ -1548,7 +1548,9 @@ h2.bt-title {
   line-height: 21px;
   z-index: 1;
 }
-
+.booking-tickets-container select {
+  cursor: pointer;
+}
 .booking-tickets-container input::placeholder {
   color: #030303;
 }
@@ -1576,10 +1578,16 @@ input.invalid {
   height: 45px;
 
 }
+input[type="date"] {
+  position: relative;
+}
 input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
   cursor: pointer;
-  height: 100%;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100% !important;
+  height: 100% !important;
 }
 .icon-date {
   background: url("assets/svg/booking-form/date.svg") no-repeat 15px center,
@@ -1645,6 +1653,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-family: Roboto;
   font-size: 18px;
   font-weight: 400;
+  line-height: 21px;
+}
+
+label .bt-unit-price {
+  font-size: 18px;
   line-height: 21px;
 }
 /* ------------------------------------------- */
@@ -1794,7 +1807,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .bt-senior-total-left {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 .bt-total-amount {
   font-size: 32px;

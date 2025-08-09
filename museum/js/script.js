@@ -195,8 +195,13 @@ submitBtn.addEventListener("click", e => {
   document.getElementById("bt-quantity-b").value = ticketCountBasic;
   document.getElementById("bt-quantity-s").value = ticketCountSenior;
 
-  document.getElementById("bt-unit-price-b").textContent = `(${amountBasic} €)`;
-  document.getElementById("bt-unit-price-s").textContent = `(${formatPrice(amountSenior)} €)`;
+  document.querySelectorAll(".bt-unit-price-b").forEach(el => {
+    el.textContent = `(${amountBasic} €)`;
+  });
+
+  document.querySelectorAll(".bt-unit-price-s").forEach(el => {
+    el.textContent = `(${formatPrice(amountSenior)} €)`;
+  });
 
   document.getElementById("bt-counted-price-b").textContent = `${priceAmountBasic} €`;
   document.getElementById("bt-counted-price-s").textContent = `${formatPrice(priceAmountSenior)} €`;
@@ -245,13 +250,20 @@ function updateBreakdown() {
   document.getElementById("bt-unit-basic").textContent = ticketCountBasic;
   document.getElementById("bt-unit-senior").textContent = ticketCountSenior;
 
-  document.getElementById("bt-unit-price-b").textContent = `(${amountBasic} €)`;
-  document.getElementById("bt-unit-price-s").textContent = `(${formatPrice(amountSenior)} €)`;
+  document.querySelectorAll(".bt-unit-price-b").forEach(el => {
+    el.textContent = `(${amountBasic} €)`;
+  });
+
+  document.querySelectorAll(".bt-unit-price-s").forEach(el => {
+    el.textContent = `(${formatPrice(amountSenior)} €)`;
+  });
 
   document.getElementById("bt-counted-price-b").textContent = `${priceAmountBasic} €`;
   document.getElementById("bt-counted-price-s").textContent = `${formatPrice(priceAmountSenior)} €`;
 
   document.getElementById("bt-total-output").textContent = `${formatPrice(totalAmount)} €`;
+
+
 }
 
 document.getElementById("bt-plus-btn-basic").addEventListener("click", () => {

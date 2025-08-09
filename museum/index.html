@@ -529,7 +529,9 @@
               <div class="bt-tickets-amount-line"></div>
 
               <div class="bt-element-wrapper">
-                <label for="bt-quantity-b">Basic 18+</label>
+                <label for="bt-quantity-b">Basic 18+
+                  <output class="bt-unit-price bt-unit-price-b">(20 €)</output>
+                </label>
                   <div class="bt-quantity-wrapper">
                     <button type="button" class="bt-decrease" aria-label="minus" id="bt-minus-btn-basic">−</button>
                     <input type="number" id="bt-quantity-b" name="quantity" min="0" max="150" step="1" value="0" required>
@@ -538,7 +540,9 @@
               </div>
 
               <div class="bt-element-wrapper">
-                <label for="bt-quantity-s">Senior 65+</label>
+                <label for="bt-quantity-s">Senior 65+
+                  <output class="bt-unit-price bt-unit-price-s">(10 €)</output>
+                </label>
                   <div class="bt-quantity-wrapper">
                     <button type="button" class="bt-decrease" aria-label="minus" id="bt-minus-btn-senior">−</button>
                     <input type="number" id="bt-quantity-s" name="quantity" min="0" max="150" step="1" value="0" required>
@@ -568,7 +572,7 @@
             <div class="bt-basic-total-left">
               <output class="bt-unit" id="bt-unit-basic">2</output>
               <span>Basic</span>
-              <output class="bt-unit-price" id="bt-unit-price-b">(20 €)</output>
+              <output class="bt-unit-price bt-unit-price-b">(20 €)</output>
             </div>
             <div class="bt-basic-total-right">
               <output class="bt-count-price" id="bt-counted-price-b">40 €</output>
@@ -579,7 +583,7 @@
             <div class="bt-senior-total-left">
               <output class="bt-unit" id="bt-unit-senior">2</output>
               <span>Senior</span>
-              <output class="bt-unit-price" id="bt-unit-price-s">(10 €)</output>
+              <output class="bt-unit-price bt-unit-price-s">(10 €)</output>
             </div>
             <div class="bt-senior-total-right">
               <output class="bt-count-price" id="bt-counted-price-s">20 €</output>
