@@ -1307,11 +1307,11 @@ input[type="number"] {
   width: 24px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(assets/svg/youtube.svg);
+  background-image: url(assets/svg/social-links/youtube.svg);
   transition: 0.5s;
 }
 .social-links-item:hover .youtube {
-  background-image: url(assets/svg/youtube-hover.svg);
+  background-image: url(assets/svg/social-links/youtube-hover.svg);
 }
 .instagram {
   display: flex;
@@ -1319,11 +1319,11 @@ input[type="number"] {
   width: 24px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(assets/svg/instagram.svg);
+  background-image: url(assets/svg/social-links/instagram.svg);
   transition: 0.5s;
 }
 .social-links-item:hover .instagram {
-  background-image: url(assets/svg/instagram-hover.svg);
+  background-image: url(assets/svg/social-links/instagram-hover.svg);
 }
 .facebook {
   display: flex;
@@ -1331,11 +1331,11 @@ input[type="number"] {
   width: 24px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(assets/svg/facebook.svg);
+  background-image: url(assets/svg/social-links/facebook.svg);
   transition: 0.5s;
 }
 .social-links-item:hover .facebook {
-  background-image: url(assets/svg/facebook-hover.svg);
+  background-image: url(assets/svg/social-links/facebook-hover.svg);
 }
 .twitter {
   display: flex;
@@ -1343,11 +1343,11 @@ input[type="number"] {
   width: 24px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(assets/svg/twitter.svg);
+  background-image: url(assets/svg/social-links/twitter.svg);
   transition: 0.5s;
 }
 .social-links-item:hover .twitter {
-  background-image: url(assets/svg/twitter-hover.svg);
+  background-image: url(assets/svg/social-links/twitter-hover.svg);
 }
 .pinterest {
   display: flex;
@@ -1355,12 +1355,12 @@ input[type="number"] {
   width: 24px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(assets/svg/pinterest.svg);
+  background-image: url(assets/svg/social-links/pinterest.svg);
   transition: 0.5s;
 }
 
 .social-links-item:hover .pinterest {
-  background-image: url(assets/svg/pinterest-hover.svg);
+  background-image: url(assets/svg/social-links/pinterest-hover.svg);
 
 }
 .footer-line {
