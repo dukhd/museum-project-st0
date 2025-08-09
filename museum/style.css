@@ -687,6 +687,11 @@ h3 {
   height: 15px;
   --progress-percent: 0%;
 }
+
+.play-line.fullscreen {
+  max-width: calc(100vw - 30%);
+}
+
 .play-line::before {
   content: "";
   position: absolute;
@@ -752,6 +757,10 @@ h3 {
   max-width: 155px;
   height: 15px;
   --audio-progress-percent: 0%;
+}
+
+.audio-line.fullscreen {
+  max-width: calc(100vw - 90%);
 }
 .audio-line::before {
   content: "";

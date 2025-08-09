@@ -168,9 +168,13 @@ fullscreenBtn.addEventListener('click', () => {
   if (!document.fullscreenElement) {
     videoMain.requestFullscreen();
     fullscreenBtn.classList.add('full_screen');
+    playLine.classList.add('fullscreen');
+    audioLine.classList.add('fullscreen');
   } else {
     document.exitFullscreen();
     fullscreenBtn.classList.remove('full_screen');
+    playLine.classList.remove('fullscreen');
+    audioLine.classList.remove('fullscreen');
   }
 });
 
