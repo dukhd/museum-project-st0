@@ -7,10 +7,13 @@ function shuffle(array) {
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
+    const img = entry.target;
     if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
+      img.style.transitionDelay = `${img.dataset.index * 20}ms`;
+      img.classList.add('visible');
     } else {
-      entry.target.classList.remove("visible");
+      img.style.transitionDelay = '0ms';
+      img.classList.remove('visible');
     }
   });
 }, {
@@ -45,6 +48,7 @@ function renderGallery() {
     img.classList.add("gallery-img");
     img.src = src;
     img.alt = `gallery picture ${index + 1}`;
+    img.dataset.index = index; 
 
     const columnIndex = index % 3;
     columns[columnIndex].append(img);
