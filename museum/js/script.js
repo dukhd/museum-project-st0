@@ -6,40 +6,66 @@ console.log(`Самооценка проекта:
 
   Итого: 156 баллов из 160 (то есть максимальный балл - 150)`);
 
+// ---------------- burger menu start
+
 document.addEventListener('DOMContentLoaded', () => {
   const navBurgerButton = document.querySelector('.nav-burger-button');
   const navBurgerMenu = document.querySelector('.nav-burger-menu');
   const navLinks = document.querySelectorAll('.navigation-list.nav-header a');
+  const welcomeContainer = document.querySelector('.welcome-content');
 
-  if (navBurgerButton && navBurgerMenu) {
+  if (navBurgerButton && navBurgerMenu && welcomeContainer) {
+    
+    function openMenu() {
+      navBurgerButton.classList.add('open');
+      navBurgerMenu.classList.add('open');
+      document.body.classList.add('menu-open');
+      welcomeContainer.classList.add('menu_active');
+    }
+
+    function closeMenu() {
+      navBurgerButton.classList.remove('open');
+      navBurgerMenu.classList.remove('open');
+      document.body.classList.remove('menu-open');
+      welcomeContainer.classList.remove('menu_active');
+    }
+
     function toggleMenu() {
-      navBurgerButton.classList.toggle('open');
-      navBurgerMenu.classList.toggle('open');
-      document.body.classList.toggle('menu-open'); 
-  }
-
-  navBurgerButton.addEventListener('click', (event) => {
-    event.stopPropagation();
-    toggleMenu();
-  });
-
-  navLinks.forEach(link => {
-    link.addEventListener('click', (event) => {
       if (navBurgerMenu.classList.contains('open')) {
-        toggleMenu();
+        closeMenu();
+      } else {
+        openMenu();
       }
-    });
-  });
+    }
 
-  document.addEventListener('click', (event) => {
-    if (navBurgerMenu.classList.contains('open') &&
-      !navBurgerMenu.contains(event.target) &&
-      !navBurgerButton.contains(event.target)) {
-        toggleMenu();
+    navBurgerButton.addEventListener('click', (event) => {
+      event.stopPropagation();
+      toggleMenu();
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (navBurgerMenu.classList.contains('open')) {
+          closeMenu();
+        }
+      });
+    });
+
+    document.addEventListener('click', (event) => {
+      if (
+        navBurgerMenu.classList.contains('open') &&
+        !navBurgerMenu.contains(event.target) &&
+        !navBurgerButton.contains(event.target)
+      ) {
+        closeMenu();
       }
     });
   }
 });
+
+
+
+// ---------------- burger menu end
 
 function formatPrice(num) {
   return Number.isInteger(num) ? num.toString() : num.toFixed(2);

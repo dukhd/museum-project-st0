@@ -214,13 +214,15 @@ body {
   position: absolute;
   width: 100vw;
   height: clamp(585px, 42.2vw, 810px);
-  background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0.50) 16.19%, rgba(0, 0, 0, 0.00) 30.73%);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 48%, rgba(0, 0, 0, 0.15) 56%, rgba(0, 0, 0, 0) 100%);
   z-index: 2;
-  left: 30%;
+  right: 0;
   top: 0;
   pointer-events: none;
 }
 .welcome-image-wrapper {
+  width: 100%;
+  height: auto; 
   overflow: hidden;
 }
 .welcome-image {
@@ -232,8 +234,8 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
   object-fit: cover;
   opacity: 0;
   pointer-events: auto;
@@ -526,13 +528,13 @@ h3 {
 /* slider */
 .explore_slider {
   width: 50%;
-  height: 700px;
+  max-height: 700px;
   display: block;
   margin-top: 15px;
 }
 .slider-wrapper {
   width: 100%;
-  height: 700px;
+  max-height: 700px;
   position: relative;
   overflow: hidden;
 }
@@ -545,7 +547,7 @@ h3 {
 .slider_before {
   position: absolute;
   height: 100%;
-  width: 58.5%;
+  width: 61.5%;
   top: 0;
   left: 0;
   overflow: hidden;
@@ -554,6 +556,12 @@ h3 {
 
 .slider_after {
   display: block;
+
+}
+
+.slider_after img {
+  width: 100%;
+  height: auto;
 }
 
 .slider_handle {
@@ -562,14 +570,15 @@ h3 {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  width: 6%;
-  height: 700px;
-  left: 55.5%;
+  width: 39px;
+  height: 100%;
+  left: 0;
   z-index: 3;
   top: 0;
   cursor: e-resize;
   -ms-touch-action: pan-y;
   touch-action: pan-y;
+  transform: translateX(-110%);
 }
 
 
@@ -603,21 +612,28 @@ h3 {
 
 .video-main {
   position: relative;
-  width: 1440px; 
-  height: 735px; 
+  /* width: 100%;
+  height: 100%;
+  max-width: 1440px;
+  max-height: 735px; */
+  width: 100%;
+  max-width: 1440px;
+  padding-bottom: 51.1%;
   overflow: hidden;
+  height: 0;
+  margin: 0 auto;
 }
+
+
 .video-center {
   position: absolute;
   z-index: 1;
   object-fit: cover;
   object-position: center;
-  /* min-height: 650px; */
-  height: 100%;
   top: 50%; 
   left: 50%; 
   transform: translate(-50%, -50%);
-  min-width: 1440px;
+  height: 100%;
   width: 100%;
 
 }
@@ -641,7 +657,7 @@ h3 {
 }
 
 .play-big-button:hover {
-  opacity: 70%;
+  opacity: 0.5;
 }
 
 .speed-display {
@@ -856,16 +872,21 @@ h3 {
 
 .video-carousel {
   margin-top: 40px;
-  margin-bottom: 40px;
   display: flex;
   gap: 42px;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
-
-.video {
-  min-width: 452px;
-  height: 254px;
+.swiper-wrapper {
+  height: auto;
+}
+.swiper-slide {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+iframe.video {
+  width: 100%;
+  height: 100%;
 }
 
 /* video dots */
@@ -1018,6 +1039,7 @@ h3 {
   display: flex;
   gap: 60px;
   max-height: 550px;
+  justify-content: center;
 }
 .tickets-left img {
   width: 100%;
@@ -1032,6 +1054,7 @@ fieldset {
   padding: 0;
   border: none;
 }
+
 label {
   color: var(--bg-dark);
   font-family: Roboto, sans-serif;
@@ -1053,13 +1076,14 @@ output {
   letter-spacing: 1.65px;
   text-align: right;
   margin-bottom: 10px;
+  width: 200px;
 }
 
 
 .tickets-types-form {
   display: flex;
   justify-content: space-between;
-  gap: 240px;
+  gap: 220px;
 }
 
 /* .tickets-form-left { grid-area: 1 / 1 / 2 / 2; }
@@ -1108,7 +1132,7 @@ input[type="number"] {
 }
 
 .tickets-form-right-container {
-  flex: 0 0 auto;
+  /* flex: 0 0 auto; */
   display: flex;
   flex-direction: column;
   align-items: flex-end; 
@@ -1131,7 +1155,7 @@ input[type="number"] {
 .amount-element-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 14px;
   align-items: flex-start;
 }
 
@@ -1146,8 +1170,8 @@ input[type="number"] {
 .quantity-wrapper {
   display: flex;
   align-items: center;
-  width: 144px;
-  height: 44px;
+  width: 150px;
+  height: 50px;
   border: 3px solid black;
   overflow: hidden; 
 
