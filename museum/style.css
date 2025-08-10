@@ -56,6 +56,33 @@ body {
   /* overflow-x: hidden; */
   margin: 0;
 }
+.no-scroll {
+  overflow: hidden;
+}
+
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  display: none;
+  width: 60px;
+  height: 60px;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 1000;
+
+  background-color: transparent;
+  background-image: url('assets/svg/scroll-to-top-btn-gold.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.scroll-to-top-btn:hover {
+  background-image: url('assets/svg/scroll-to-top-btn-hover.svg');
+}
+
 :root {
   --bg-dark: #030303;
   --dark-red: #710707;
@@ -211,6 +238,7 @@ body {
   opacity: 0;
   pointer-events: auto;
   flex-shrink: 0;
+  transition: 500ms;
 }
 .img_slide.active {
   position: absolute;
@@ -224,6 +252,7 @@ body {
   max-height: 750px;
   opacity: 1;
   pointer-events: auto;
+  transition: 500ms;
 }
 
 .title-hiden {
@@ -574,8 +603,24 @@ h3 {
 
 .video-main {
   position: relative;
+  width: 1440px; 
+  height: 735px; 
+  overflow: hidden;
 }
+.video-center {
+  position: absolute;
+  z-index: 1;
+  object-fit: cover;
+  object-position: center;
+  /* min-height: 650px; */
+  height: 100%;
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  min-width: 1440px;
+  width: 100%;
 
+}
 /* VIDEO BAR START -------------------- */
 .play-big-button {
   position: absolute;
@@ -599,15 +644,33 @@ h3 {
   opacity: 70%;
 }
 
-.play-line-after-768 {
-  display: none;
+.speed-display {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px 20px;
+  border-radius: 10px;
+  z-index: 9999;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  user-select: none;
+  opacity: 1;
+}
+.speed-display.hidden {
+  opacity: 0;
 }
 .video-bar {
-  z-index: 1;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
   width: 100%;
-  max-width: 1440px;
   height: 85px;
-  background-color: var(--bg-dark);
+  background-color: rgba(3, 3, 3, 0.5);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -623,7 +686,7 @@ h3 {
   background-position: center;
   cursor: pointer;
   transition: 0.5s;
-  z-index: 2;
+  z-index: 3;
 }
 .play-button:hover {
   width: 23px;
@@ -634,7 +697,7 @@ h3 {
   background-position: center;
   transition: 0.5s;
 }
-.play-button:active {
+.play-button.active {
   width: 23px;
   height: 31px;
   background-image: url(assets/svg/additional/pause.svg);
@@ -649,16 +712,22 @@ h3 {
   width: 100%;
   max-width: 929px;
   height: 15px;
+  --progress-percent: 0%;
 }
+
+.play-line.fullscreen {
+  max-width: calc(100vw - 30%);
+}
+
 .play-line::before {
   content: "";
   position: absolute;
-  width: 54%;
+  width: var(--progress-percent);
   height: 8px;
   background: var(--dark-red);
   top: 3.5px;
   left: 0;
-  z-index: 1;
+  z-index: 3;
 }
 .play-line-dot {
   position: absolute;
@@ -666,18 +735,18 @@ h3 {
   height: 15px;
   border-radius: 50px;
   background: var(--font-white);
-  left: 53%;
+  left: var(--progress-percent);
   z-index: 5;
 }
 .play-line::after {
   content: "";
   position: absolute;
-  width: 46%;
+  width: calc(100% - var(--progress-percent));
   height: 8px;
   background: #C4C4C4;
   top: 3.5px;
   right: 0;
-  z-index: 1;
+  z-index: 3;
 }
 
 .audio-button {
@@ -689,7 +758,7 @@ h3 {
   background-position: center;
   cursor: pointer;
   transition: 0.5s;
-  z-index: 2;
+  z-index: 3;
 }
 .audio-button:hover {
   width: 38px;
@@ -700,7 +769,7 @@ h3 {
   background-position: center;
   transition: 0.5s;
 }
-.audio-button:active {
+.audio-button.muted {
   width: 38px;
   height: 31px;
   background-image: url(assets/svg/additional/mute.svg);
@@ -714,16 +783,22 @@ h3 {
   width: 100%;
   max-width: 155px;
   height: 15px;
+  --audio-progress-percent: 0%;
+}
+
+.audio-line.fullscreen {
+  max-width: calc(100vw - 90%);
 }
 .audio-line::before {
   content: "";
   position: absolute;
-  width: 40%;
+  width: var(--audio-progress-percent);
   height: 8px;
   background: var(--dark-red);
   top: 3.5px;
   left: 0;
-  z-index: 1;
+  z-index: 3;
+  /* transition: width 0.3s ease; */
 }
 .audio-line-dot {
   position: absolute;
@@ -731,18 +806,20 @@ h3 {
   height: 15px;
   border-radius: 50px;
   background: var(--font-white);
-  left: 39%;
+  left: var(--audio-progress-percent);
   z-index: 5;
+  /* transition: left 0.3s ease; */
 }
 .audio-line::after {
   content: "";
   position: absolute;
-  width: 60%;
+  width: calc(100% - var(--audio-progress-percent));
   height: 8px;
   background: #C4C4C4;
   top: 3.5px;
   right: 0;
-  z-index: 1;
+  z-index: 3;
+  /* transition: width 0.3s ease; */
 }
 
 .fullscreen-button {
@@ -752,7 +829,7 @@ h3 {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  z-index: 2;
+  z-index: 3;
   cursor: pointer;
   transition: 0.5s;
 }
@@ -765,7 +842,7 @@ h3 {
   background-position: center;
   transition: 0.5s;
 }
-.fullscreen-button:active {
+.fullscreen-button.full_screen {
   width: 35px;
   height: 35px;
   background-image: url(assets/svg/additional/fullscreen_exit.svg);
@@ -839,315 +916,6 @@ h3 {
 .circle_nav.active {
   background-color: #333333;
 }
-
-
-/* -------------------------------------- video old */
-
-/* 
-.video-center {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-}
-.video-center img {
-  width: 100%;
-  max-width: 1440px;
-  height: auto;
-}
-.play-big-button {
-  position: absolute;
-  width: 100%;
-  max-width: 220px;
-  height: 100%;
-  max-height: 220px;
-  background-image: url(assets/svg/additional/play-big.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  top: 44%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  transition: 0.5s;
-  z-index: 2;
-}
-.play-big-button:hover {
-  opacity: 70%;
-} */
-/* video bar BIG */
-/* .play-line-after-768 {
-  display: none;
-}
-.video-bar {
-  z-index: 1;
-  width: 100%;
-  max-width: 1440px;
-  height: 85px;
-  background-color: var(--bg-dark);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 30px;
-  box-sizing: border-box;
-}
-.play-button {
-  width: 23px;
-  height: 31px;
-  background-image: url(assets/svg/additional/play.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  cursor: pointer;
-  transition: 0.5s;
-  z-index: 2;
-}
-.play-button:hover {
-  width: 23px;
-  height: 31px;
-  background-image: url(assets/svg/additional/play-hover.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  transition: 0.5s;
-}
-.play-button:active {
-  width: 23px;
-  height: 31px;
-  background-image: url(assets/svg/additional/pause.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
-
-.play-line {
-  position: relative;
-  cursor: pointer;
-  width: 100%;
-  max-width: 929px;
-  height: 15px;
-}
-.play-line::before {
-  content: "";
-  position: absolute;
-  width: 54%;
-  height: 8px;
-  background: var(--dark-red);
-  top: 3.5px;
-  left: 0;
-  z-index: 1;
-}
-.play-line-dot {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  border-radius: 50px;
-  background: var(--font-white);
-  left: 53%;
-  z-index: 5;
-}
-.play-line::after {
-  content: "";
-  position: absolute;
-  width: 46%;
-  height: 8px;
-  background: #C4C4C4;
-  top: 3.5px;
-  right: 0;
-  z-index: 1;
-}
-
-.audio-button {
-  width: 38px;
-  height: 31px;
-  background-image: url(assets/svg/additional/volume.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  cursor: pointer;
-  transition: 0.5s;
-  z-index: 2;
-}
-.audio-button:hover {
-  width: 38px;
-  height: 31px;
-  background-image: url(assets/svg/additional/volume-hover.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  transition: 0.5s;
-}
-.audio-button:active {
-  width: 38px;
-  height: 31px;
-  background-image: url(assets/svg/additional/mute.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
-.audio-line {
-  position: relative;
-  cursor: pointer;
-  width: 100%;
-  max-width: 155px;
-  height: 15px;
-}
-.audio-line::before {
-  content: "";
-  position: absolute;
-  width: 40%;
-  height: 8px;
-  background: var(--dark-red);
-  top: 3.5px;
-  left: 0;
-  z-index: 1;
-}
-.audio-line-dot {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  border-radius: 50px;
-  background: var(--font-white);
-  left: 39%;
-  z-index: 5;
-}
-.audio-line::after {
-  content: "";
-  position: absolute;
-  width: 60%;
-  height: 8px;
-  background: #C4C4C4;
-  top: 3.5px;
-  right: 0;
-  z-index: 1;
-}
-
-.fullscreen-button {
-  width: 35px;
-  height: 35px;
-  background-image: url(assets/svg/additional/fullscreen.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  z-index: 2;
-  cursor: pointer;
-  transition: 0.5s;
-}
-.fullscreen-button:hover {
-  width: 35px;
-  height: 35px;
-  background-image: url(assets/svg/additional/fullscreen-hover.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  transition: 0.5s;
-}
-.fullscreen-button:active {
-  width: 35px;
-  height: 35px;
-  background-image: url(assets/svg/additional/fullscreen_exit.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  transition: 0.5s;
-} */
-
-
-/* video bottom part */
-/* .video-bottom {
-  padding-top: 40px;
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 40px;
-  gap: 42px;
-} */
-/* video mini bars */
-/* 
-.video-bottom-item {
-  position: relative;
-  z-index: 1;
-  height: 100%;
-  max-height: 254px;
-}
-.video-bottom img {
-  width: 100%;
-  max-width: 452px;
-  height: 100%;
-  max-height: 254px;
-}
-.youtube-play-button {
-  width: 68px;
-  height: 48px;
-  background-image: url(assets/svg/additional/youtube-icon.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  z-index: 2;
-}
-.youtube-play-button:hover {
-  opacity: 70%;
-}
-.video-text-container {
-  position: absolute;
-  top: 15px;
-  left: 10px;
-  width: calc(100% - 10px);
-  padding-right: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  z-index: 2;
-  overflow: hidden;
-}
-.video-text-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  overflow-x: hidden;
-  white-space: nowrap;
-}
-.video-logo {
-  width: 40px;
-  height: 40px;
-  background-image: url(assets/svg/additional/video-logo.svg);
-  flex-shrink: 0; 
-}
-.video-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  min-width: 0;
-}
-.video-text p {
-  color: var(--font-white);
-  font-family: Roboto;
-  font-size: clamp(12px, 2vw, 18px);
-  font-weight: 400;
-  line-height: 38.5px;
-  margin: 0;
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.video-bar-dots {
-  display: flex;
-  flex-direction: column;
-  row-gap: 2px;
-}
-.video-dots-item {
-  width: 4px;
-  height: 4px;
-  background-color: #ffffff;
-  border-radius: 50%;
-} */
-
-
 
 
 /* gallery section */
@@ -1345,6 +1113,7 @@ input[type="number"] {
   flex-direction: column;
   align-items: flex-end; 
   gap: 50px;
+  width: 196px;
 
 }
 .tickets-form-right-container .tickets-form-right {
@@ -1562,11 +1331,11 @@ input[type="number"] {
   width: 24px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(assets/svg/youtube.svg);
+  background-image: url(assets/svg/social-links/youtube.svg);
   transition: 0.5s;
 }
 .social-links-item:hover .youtube {
-  background-image: url(assets/svg/youtube-hover.svg);
+  background-image: url(assets/svg/social-links/youtube-hover.svg);
 }
 .instagram {
   display: flex;
@@ -1574,11 +1343,11 @@ input[type="number"] {
   width: 24px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(assets/svg/instagram.svg);
+  background-image: url(assets/svg/social-links/instagram.svg);
   transition: 0.5s;
 }
 .social-links-item:hover .instagram {
-  background-image: url(assets/svg/instagram-hover.svg);
+  background-image: url(assets/svg/social-links/instagram-hover.svg);
 }
 .facebook {
   display: flex;
@@ -1586,11 +1355,11 @@ input[type="number"] {
   width: 24px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(assets/svg/facebook.svg);
+  background-image: url(assets/svg/social-links/facebook.svg);
   transition: 0.5s;
 }
 .social-links-item:hover .facebook {
-  background-image: url(assets/svg/facebook-hover.svg);
+  background-image: url(assets/svg/social-links/facebook-hover.svg);
 }
 .twitter {
   display: flex;
@@ -1598,11 +1367,11 @@ input[type="number"] {
   width: 24px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(assets/svg/twitter.svg);
+  background-image: url(assets/svg/social-links/twitter.svg);
   transition: 0.5s;
 }
 .social-links-item:hover .twitter {
-  background-image: url(assets/svg/twitter-hover.svg);
+  background-image: url(assets/svg/social-links/twitter-hover.svg);
 }
 .pinterest {
   display: flex;
@@ -1610,12 +1379,12 @@ input[type="number"] {
   width: 24px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(assets/svg/pinterest.svg);
+  background-image: url(assets/svg/social-links/pinterest.svg);
   transition: 0.5s;
 }
 
 .social-links-item:hover .pinterest {
-  background-image: url(assets/svg/pinterest-hover.svg);
+  background-image: url(assets/svg/social-links/pinterest-hover.svg);
 
 }
 .footer-line {
@@ -1666,6 +1435,40 @@ input[type="number"] {
 }
 
 /* BOOKING TICKET WINDOW START */
+.close_button {
+  position: absolute;
+  width: 27px;
+  height: 27px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  top: 29px;
+  right: 29px;
+}
+
+.close_button::before,
+.close_button::after {
+  content: "";
+  position: absolute;
+  width: 35px;
+  height: 1px;
+  background: #030303;
+  transform-origin: center;
+  transition: transform 0.6s ease;
+}
+
+.close_button:hover::before,
+.close_button:hover::after {
+  background: var(--dark-red);
+  height: 3px;
+}
+.close_button::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.close_button::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
 
 .overlay {
   position: fixed;
@@ -1686,29 +1489,29 @@ input[type="number"] {
 /* window mooving */
 
 .booking-tickets-window-wrapper {
+  position: relative;
   position: fixed;
-  display: none;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   width: 1440px;
   height: 845px;
-
   background: #fff;
   z-index: 1001;
+  transform: translate(-150%, -50%);
+  opacity: 0;
+  transition: transform 0.8s ease, opacity 0.4s ease;
 }
-
+.booking-tickets-window-wrapper.active {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
 .booking-tickets-container {
   display: flex;
   gap: 40px;
   padding: 91px 40px;
   justify-content: center;
-
 }
 
-.booking-tickets-window-wrapper.active {
-  display: block;
-}
 .bt-left {
   display: flex;
   flex-direction: column;
@@ -1769,7 +1572,9 @@ h2.bt-title {
   line-height: 21px;
   z-index: 1;
 }
-
+.booking-tickets-container select {
+  cursor: pointer;
+}
 .booking-tickets-container input::placeholder {
   color: #030303;
 }
@@ -1797,10 +1602,16 @@ input.invalid {
   height: 45px;
 
 }
+input[type="date"] {
+  position: relative;
+}
 input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
   cursor: pointer;
-  height: 100%;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100% !important;
+  height: 100% !important;
 }
 .icon-date {
   background: url("assets/svg/booking-form/date.svg") no-repeat 15px center,
@@ -1866,6 +1677,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-family: Roboto;
   font-size: 18px;
   font-weight: 400;
+  line-height: 21px;
+}
+
+label .bt-unit-price {
+  font-size: 18px;
   line-height: 21px;
 }
 /* ------------------------------------------- */
@@ -2015,7 +1831,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .bt-senior-total-left {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 .bt-total-amount {
   font-size: 32px;
@@ -2036,7 +1852,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .bt-bank-card-item1 {
   width: 360px;
   height: 211px;
-  background-color: #BCBCBC;
+  background-image: url(assets/img/tickets-sections/bank-card-back.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   align-self: flex-start;
   z-index: 1;
 }
@@ -2046,7 +1865,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin-top: -181px;
   width: 360px;
   height: 211px;
-  background-color: #A4A4A3;
+  background-image: url(assets/img/tickets-sections/bank-card-cvc.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   border-radius: 0.5px;
 }
 
@@ -2068,8 +1890,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   padding-inline: 0;
   border-width: 0;
   align-self: flex-end;
+  transition: 0.6s;
 }
 
+.bt-book-button:hover {
+  background-color: var(--font-gold);
+  color: var(--bg-dark);
+}
 /* lines start*/
 .bt-line {
   width: 400px;

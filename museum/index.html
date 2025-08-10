@@ -12,9 +12,7 @@
   <link href="https://api.mapbox.com/mapbox-gl-js/v3.14.0/mapbox-gl.css" rel="stylesheet">
   <script src="https://api.mapbox.com/mapbox-gl-js/v3.14.0/mapbox-gl.js"></script>
   <script src="https://www.youtube.com/iframe_api"></script>
-  <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
   <body>
@@ -78,6 +76,7 @@
     </div>
   </header>
   <main class="main-container">
+    <button class="scroll-to-top-btn" title="Go to top"></button>
     <!-- welcome section start -->
      <div class="dark-bgr">
       <section class="section container welcome-section">
@@ -122,8 +121,7 @@
             <button class="pagination-arrow-next" id="arrow-next" aria-label="arrow next"></button>
           </div>
         </div>
-      </section>
-      <script src="welcome-slider.js"></script>
+      </section>    
     </div>
     <!-- welcome section end -->
     <!-- visiting section start -->
@@ -235,18 +233,20 @@
           <p>Enter and visit one of the most famous museums in the world and enjoy masterpieces such as Mona Lisa or Hammurabi's Code</p>
         </div>
         <div class="video-slider">
-
-          <div class="video-main">
-            <div class="play-big-button"></div>
-            <iframe class="video-center active"
+            <!-- <iframe class="video-center active"
               width="1440" height="650" 
-              src="https://www.youtube.com/embed/zp1BXPX8jcU?si=eWuAWh4nuiMQ3IUq&enablejsapi=1" 
+              src="https://www.youtube.com/embed/zp1BXPX8jcU?si=eWuAWh4nuiMQ3IUq&enablejsapi=1&controls=0" 
               title="YouTube video player"
               frameborder="0" 
               allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
               referrerpolicy="strict-origin-when-cross-origin" 
               allowfullscreen>
-            </iframe>
+            </iframe> -->
+          <div class="video-main">
+            <div class="play-big-button"></div>
+            <video class="video-center active" poster="assets/video/poster0-0.webp">
+              <source src="assets/video/video0.mp4" type="video/mp4">
+            </video>
             <div class="video-bar">
               <div class="play-button"></div>
               <div class="play-line">
@@ -263,59 +263,74 @@
 
           <div class="video-carousel swiper">
             <div class="swiper-wrapper">
-              <div class="swiper-slide">
+              <div class="swiper-slide"
+                  data-yt="https://www.youtube.com/embed/zp1BXPX8jcU?si=eWuAWh4nuiMQ3IUq&enablejsapi=1"
+                  data-mp4="assets/video/video0.mp4"
+                  data-poster="assets/video/poster0-0.webp">
                 <iframe class="video active youtube-player"
                   width="452" height="254"
                   src="https://www.youtube.com/embed/zp1BXPX8jcU?si=eWuAWh4nuiMQ3IUq&enablejsapi=1" 
                   title="YouTube video player"
                   frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                   referrerpolicy="strict-origin-when-cross-origin" 
                   allowfullscreen>
                 </iframe>
               </div>
-              <div class="swiper-slide ">
+              <div class="swiper-slide"
+                  data-yt="https://www.youtube.com/embed/Vi5D6FKhRmo?si=QpZJ91XksbozwJSP&enablejsapi=1"
+                  data-mp4="assets/video/video1.mp4"
+                  data-poster="assets/video/poster2-2.webp">
                 <iframe class="video youtube-player"
                   width="452" height="254" 
                   src="https://www.youtube.com/embed/Vi5D6FKhRmo?si=QpZJ91XksbozwJSP&enablejsapi=1" 
                   title="YouTube video player" 
                   frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                   referrerpolicy="strict-origin-when-cross-origin" 
                   allowfullscreen>
                 </iframe>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide"
+                  data-yt="https://www.youtube.com/embed/NOhDysLnTvY?si=xJuFjdRQj2YZCJ_n&enablejsapi=1"
+                  data-mp4="assets/video/video2.mp4"
+                  data-poster="assets/video/poster3-3.webp">
                 <iframe class="video youtube-player"
                   width="452" height="254" 
                   src="https://www.youtube.com/embed/NOhDysLnTvY?si=xJuFjdRQj2YZCJ_n&enablejsapi=1" 
                   title="YouTube video player" 
                   frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                   referrerpolicy="strict-origin-when-cross-origin" 
                   allowfullscreen>
                 </iframe>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide"
+                  data-yt="https://www.youtube.com/embed/aWmJ5DgyWPI?si=LcqAnognNlRXbc1S&enablejsapi=1"
+                  data-mp4="assets/video/video3.mp4"
+                  data-poster="assets/video/poster1-1.webp">
                 <iframe class="video youtube-player"
                   loading="lazy"
                   width="452" height="254" 
                   src="https://www.youtube.com/embed/aWmJ5DgyWPI?si=LcqAnognNlRXbc1S&enablejsapi=1" 
                   title="YouTube video player" 
                   frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                   referrerpolicy="strict-origin-when-cross-origin" 
                   allowfullscreen>
                 </iframe>
               </div>
-              <div class="swiper-slide">
+              <div class="swiper-slide"
+                  data-yt="https://www.youtube.com/embed/2OR0OCr6uRE?si=o2Hhr5g0KPvNSi1Y&enablejsapi=1"
+                  data-mp4="assets/video/video4.mp4"
+                  data-poster="assets/video/poster4-4.webp">
                 <iframe class="video youtube-player"
                   loading="lazy"
                   width="452" height="254" 
                   src="https://www.youtube.com/embed/2OR0OCr6uRE?si=o2Hhr5g0KPvNSi1Y&enablejsapi=1" 
                   title="YouTube video player" 
                   frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                   referrerpolicy="strict-origin-when-cross-origin" 
                   allowfullscreen>
                 </iframe>
@@ -335,24 +350,7 @@
             
         </div>
         
-        <!-- <div class="video-center">
-          <img src="assets/video/poster0-0.webp" 
-          srcset="
-            assets/video/poster0-0-380.webp 380w,
-            assets/video/poster0-0-728.webp 728w,
-            assets/video/poster0-0.webp 1440w
-          "
-          sizes="
-            (max-width: 420px) 380px,
-            (max-width: 768px) 728px,
-            1440px
-          "
-          width="100%"
-          height="auto"
-          
-          alt="Video main"
-          >
-          <div class="play-big-button"></div>
+        <!-- video bar after 768
           <div class="play-line-after-768">
             <div class="play-line-dot-after-768"></div>
           </div>
@@ -366,59 +364,9 @@
               <div class="audio-line-dot"></div>
             </div>
             <div class="fullscreen-button"></div>
-          </div>
-        </div>
-        <div class="video-bottom">
-          <div class="video-bottom-item">
-            <img src="assets/video/poster1-1.webp" alt="Video small one">
-            <div class="youtube-play-button"></div>
-            <div class="video-text-container">
-              <div class="video-text-left">
-                <div class="video-logo"></div>
-                <div class="video-text"><p>Exposition - Le Corps et l’Ame. De Dona...</p></div>
-              </div>
-              <div class="video-bar-dots">
-                <div class="video-dots-item"></div>
-                <div class="video-dots-item"></div>
-                <div class="video-dots-item"></div>
-              </div>
-            </div>
-          </div>
-          <div class="video-bottom-item">
-            <img src="assets/video/poster2-2.webp" alt="Video small two">
-            <div class="youtube-play-button"></div>
-            <div class="video-text-container">
-              <div class="video-text-left">
-                <div class="video-logo"></div>
-                <div class="video-text"><p>Au Louvre ! La Venus de Milo</p></div>
-              </div>
-              <div class="video-bar-dots">
-                <div class="video-dots-item"></div>
-                <div class="video-dots-item"></div>
-                <div class="video-dots-item"></div>
-              </div>
-            </div>
-          </div>
-          <div class="video-bottom-item">
-            <img src="assets/video/poster3-3.webp" alt="Video small three">
-            <div class="youtube-play-button"></div>
-            <div class="video-text-container">
-              <div class="video-text-left">
-                <div class="video-logo"></div>
-                <div class="video-text"><p>Promenade dans les collections mesop...</p></div>
-              </div>
-              <div class="video-bar-dots">
-                <div class="video-dots-item"></div>
-                <div class="video-dots-item"></div>
-                <div class="video-dots-item"></div>
-              </div>
-            </div>
-          </div>
-        </div> -->
-        
-        
+          </div> -->
+      
       </section>
-      <script src="video-slider.js"></script>
     </div>
     <!-- video section end -->
     <!-- gallery section start -->
@@ -432,8 +380,6 @@
 
         <div class="gallery-gradient"></div>
       </section>
-
-      <script src="gallery.js"></script>
       
     </div>
     <!-- gallery section end -->
@@ -446,7 +392,7 @@
         <div class="tickets-container">
 
           <div class="tickets-left">
-            <img src="assets/img/buy-tickets-img.webp" alt="Buy tickets" width="720" height="550">
+            <img src="assets/img/tickets-sections/buy-tickets-img.webp" alt="Buy tickets" width="720" height="550">
           </div>
           <!-- calculator--------------------------------------------------------------------------------------------- -->
           <div class="tickets-right">
@@ -517,6 +463,7 @@
     <!-- booking tickets window start ------------------------------------- -->
     <div class="overlay" id="overlay"></div>
     <div class="booking-tickets-window-wrapper" id="booking-tickets-window">
+      <button class="close_button" type="button" aria-label="close"></button>
       <div class="booking-tickets-container">
       <div class="bt-left">
         <div class="logo-gold"></div>
@@ -552,7 +499,7 @@
           <input type="text" id="name" name="name" 
             required
             placeholder="Name"
-            pattern="^[a-zA-Zа-яА-Я ]{3,15}$"
+            pattern="^[a-zA-Zа-яА-ЯЁё ]{3,15}$"
             title="Use 3 to 15 letters (Latin or Cyrillic) and spaces only"
             class="icon-name">
             <div class="validation-message" id="name-error"></div>
@@ -560,13 +507,13 @@
             required
             placeholder="E-mail"
             class="icon-email"
-            pattern="^[-_a-zA-Z0-9]{3,15}@[a-zA-Z]{4,}\.[a-zA-Z]{2,}$"
+            pattern="^[A-Za-z0-9_\-]{3,15}@[A-Za-z0-9\-]{4,}\.[A-Za-z]{2,}$"
             title="Format: username@example.com">
             <div class="validation-message" id="email-error"></div>
           <input type="text" id="tel" name="telephone"
             required
             placeholder="Phone"
-            pattern="^(\d{2,3}([\- ]?)){3,4}\d{2,3}$"
+            pattern="^((\d{1,10})|((?:\d{2}[\- ]){0,4}\d{1,2})|((?:\d{3}[\- ]){0,2}\d{1,3}))$"
             class="icon-tel"
             title="Up to 10 digits. Allowed separators: space or dash. Groups of 2–3 digits.">
             <div class="validation-message" id="tel-error"></div>
@@ -583,7 +530,9 @@
               <div class="bt-tickets-amount-line"></div>
 
               <div class="bt-element-wrapper">
-                <label for="bt-quantity-b">Basic 18+</label>
+                <label for="bt-quantity-b">Basic 18+
+                  <output class="bt-unit-price bt-unit-price-b">(20 €)</output>
+                </label>
                   <div class="bt-quantity-wrapper">
                     <button type="button" class="bt-decrease" aria-label="minus" id="bt-minus-btn-basic">−</button>
                     <input type="number" id="bt-quantity-b" name="quantity" min="0" max="150" step="1" value="0" required>
@@ -592,7 +541,9 @@
               </div>
 
               <div class="bt-element-wrapper">
-                <label for="bt-quantity-s">Senior 65+</label>
+                <label for="bt-quantity-s">Senior 65+
+                  <output class="bt-unit-price bt-unit-price-s">(10 €)</output>
+                </label>
                   <div class="bt-quantity-wrapper">
                     <button type="button" class="bt-decrease" aria-label="minus" id="bt-minus-btn-senior">−</button>
                     <input type="number" id="bt-quantity-s" name="quantity" min="0" max="150" step="1" value="0" required>
@@ -614,7 +565,7 @@
             <output id="bt-ticket-type-output" for="bt-ticket-type" class="icon-t-type">Temporary exhibition</output>
           </div>
           <div class="bt-overview-img">
-            <img src="assets/img/booking-tickets-img.png" alt="Louvre" width="150" height="120">
+            <img src="assets/img/tickets-sections/booking-tickets-img.png" alt="Louvre" width="150" height="120">
           </div>
         </div>
         <div class="bt-price-breakdown">
@@ -622,7 +573,7 @@
             <div class="bt-basic-total-left">
               <output class="bt-unit" id="bt-unit-basic">2</output>
               <span>Basic</span>
-              <output class="bt-unit-price" id="bt-unit-price-b">(20 €)</output>
+              <output class="bt-unit-price bt-unit-price-b">(20 €)</output>
             </div>
             <div class="bt-basic-total-right">
               <output class="bt-count-price" id="bt-counted-price-b">40 €</output>
@@ -633,7 +584,7 @@
             <div class="bt-senior-total-left">
               <output class="bt-unit" id="bt-unit-senior">2</output>
               <span>Senior</span>
-              <output class="bt-unit-price" id="bt-unit-price-s">(10 €)</output>
+              <output class="bt-unit-price bt-unit-price-s">(10 €)</output>
             </div>
             <div class="bt-senior-total-right">
               <output class="bt-count-price" id="bt-counted-price-s">20 €</output>
@@ -671,7 +622,6 @@
           <div class="contacts-body-left">
             <div class="contacts-body-top">
               <p class="bold-text">Palais Royal<br>Musee du Louvre</p>
-              <!-- <p class="bold-text">Musee du Louvre</p> -->
             </div>
             <div class="contacts-body-bottom">
               <p class="address">address: 75001 Paris, France</p>
@@ -679,42 +629,7 @@
               <p class="mail">mail:<a href="mailto:info@louvre.fr"> info@louvre.fr</a></p>
             </div>
           </div>
-          <!-- <div class="map-right"><img src="assets/img/map.webp" alt="Map" width="960" height="620"></div> -->
           <div id="map"></div>
-          <script>
-            mapboxgl.accessToken = 'pk.eyJ1IjoiZGlyZm9tIiwiYSI6ImNtZHU5bHBwbTBna28ybHF3c2VkdXJydnoifQ.BUgn3JrFvBlVltdfVfX-5Q';
-              const map = new mapboxgl.Map({
-                  container: 'map',
-                  // style: 'mapbox://styles/mapbox/light-v11',
-                  style: 'mapbox://styles/dirfom/cmdubre7d00hn01qs8zb83afp',
-                  center: [2.3364, 48.86091],
-                  zoom: 16
-              });
-              const markers = [
-                [2.3364, 48.86091],
-                [2.3333, 48.8602],
-                [2.3397, 48.8607],
-                [2.3330, 48.8619],
-                [2.3365, 48.8625]
-              ];
-              markers.forEach((coord, index) => {
-                new mapboxgl.Marker({
-                  color: index === 0 ? "#171717" : "#757575"
-                })
-                .setLngLat(coord)
-                .addTo(map);
-              });
-              map.on('load', () => {
-                map.setPaintProperty('water', 'fill-color', '#C6D0D2');
-                map.setPaintProperty('land', 'background-color', '#F8F8F6');
-                map.setPaintProperty('building', 'fill-color', '#EAEAE8');
-                
-              });
-              const nav = new mapboxgl.NavigationControl({
-                visualizePitch: true
-              });
-              map.addControl(nav, 'top-right');
-          </script>
         </div>
       </section>
     </div>
@@ -761,8 +676,12 @@
       <!-- footer-bottom end -->
     </div>
   </footer>
-
-  <script src="script.js" defer></script>
-  <script src="explore-slider.js"></script>
+  <script src="js/script.js" defer></script>
+  <script src="js/welcome-slider.js"></script>
+  <script src="js/explore-slider.js"></script>
+  <script src="js/video-slider.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/additional.js"></script>
 </body>
 </html>
