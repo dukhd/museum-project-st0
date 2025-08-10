@@ -1,36 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const navBurgerButton = document.querySelector('.nav-burger-button');
-    const navBurgerMenu = document.querySelector('.nav-burger-menu');
-    const navLinks = document.querySelectorAll('.navigation-list.nav-header a');
+  const navBurgerButton = document.querySelector('.nav-burger-button');
+  const navBurgerMenu = document.querySelector('.nav-burger-menu');
+  const navLinks = document.querySelectorAll('.navigation-list.nav-header a');
 
-    if (navBurgerButton && navBurgerMenu) {
-        function toggleMenu() {
-            navBurgerButton.classList.toggle('open');
-            navBurgerMenu.classList.toggle('open');
-            document.body.classList.toggle('menu-open'); 
-        }
+  if (navBurgerButton && navBurgerMenu) {
+    function toggleMenu() {
+      navBurgerButton.classList.toggle('open');
+      navBurgerMenu.classList.toggle('open');
+      document.body.classList.toggle('menu-open'); 
+  }
 
-        navBurgerButton.addEventListener('click', (event) => {
-            event.stopPropagation();
-            toggleMenu();
-        });
+  navBurgerButton.addEventListener('click', (event) => {
+    event.stopPropagation();
+    toggleMenu();
+  });
 
-        navLinks.forEach(link => {
-            link.addEventListener('click', (event) => {
-                if (navBurgerMenu.classList.contains('open')) {
-                    toggleMenu();
-                }
-            });
-        });
+  navLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+      if (navBurgerMenu.classList.contains('open')) {
+        toggleMenu();
+      }
+    });
+  });
 
-        document.addEventListener('click', (event) => {
-            if (navBurgerMenu.classList.contains('open') &&
-                !navBurgerMenu.contains(event.target) &&
-                !navBurgerButton.contains(event.target)) {
-                toggleMenu();
-            }
-        });
-    }
+  document.addEventListener('click', (event) => {
+    if (navBurgerMenu.classList.contains('open') &&
+      !navBurgerMenu.contains(event.target) &&
+      !navBurgerButton.contains(event.target)) {
+        toggleMenu();
+      }
+    });
+  }
 });
 
 function formatPrice(num) {
@@ -297,8 +297,6 @@ document.getElementById("bt-minus-btn-senior").addEventListener("click", () => {
 document.getElementById("bt-ticket-type").addEventListener("change", updateBreakdown);
 
 //  update Breakdown in the window end
-
-
 
 
 // choose only today date function and output start
