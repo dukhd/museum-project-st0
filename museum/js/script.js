@@ -1,3 +1,11 @@
+console.log(`Самооценка проекта:
+
+  НЕ выполнено: "слайды в секции welcome перелистываются плавно с анимацией смещения вправо или влево" - это - 4 балла; 
+  Все остальные пункты выполнены. 
+  В качестве дополнительного функционала реализована кнопка прокрутки страницы вверх, которая появляется после прокрутки вниз на 300px.
+
+  Итого: 156 баллов из 160 (то есть максимальный балл - 150)`);
+
 document.addEventListener('DOMContentLoaded', () => {
   const navBurgerButton = document.querySelector('.nav-burger-button');
   const navBurgerMenu = document.querySelector('.nav-burger-menu');
