@@ -37,12 +37,7 @@ var map = L.map('map').setView([48.86091, 2.3364], 17);
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
-  var marker1 = L.marker([48.86091, 2.3364], {
-    color: 'red',
-    fillColor: '#f03',
-    fillOpacity: 0.5,
-    radius: 500,
-  }).addTo(map);
+  var marker1 = L.marker([48.86091, 2.3364]).addTo(map);
   var marker2 = L.marker([48.8602, 2.3333]).addTo(map);
   var marker3 = L.marker([48.8607, 2.3397]).addTo(map);
   var marker4 = L.marker([48.8619, 2.3330]).addTo(map);
